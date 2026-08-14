@@ -1,0 +1,1956 @@
+/* =========================================================
+   TRANSFORMATION CAMP 26
+   MAIN STYLESHEET
+========================================================= */
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f7f5f0;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    position: relative;
+    z-index: 100;
+
+    padding: 35px 20px 25px;
+
+    background-color: #f7f2f0;
+
+    text-align: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto 30px;
+
+    color: #111111;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+
+    width: 250px;
+    height: auto;
+}
+
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-nav {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 20px 28px;
+
+    background-color: #ffffff;
+
+    border-radius: 50px;
+}
+
+.main-nav a {
+    color: #111111;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.main-nav a:hover {
+    color: #e53935;
+}
+
+.main-nav a:focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+section {
+    width: 100%;
+}
+
+.section-label {
+    margin-bottom: 25px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 14px 28px;
+
+    border: 2px solid transparent;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+    outline: 3px solid #e53935;
+    outline-offset: 4px;
+}
+
+.btn-primary {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #111111;
+
+    border-color: #111111;
+}
+
+.btn-secondary:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 85vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+}
+
+.hero-label {
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+
+    font-size: 64px;
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+
+    margin: 70px auto 0;
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    padding: 120px 60px;
+
+    background-color: #111111;
+
+    color: #ffffff;
+}
+
+.about-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.about-heading h2 {
+    max-width: 500px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.about-content {
+    max-width: 550px;
+}
+
+.about-intro {
+    margin-bottom: 30px;
+
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.about-content p:not(.about-intro) {
+    margin-bottom: 35px;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.text-link {
+    color: #ffffff;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #ffffff;
+
+    padding-bottom: 5px;
+}
+
+
+/* =========================================================
+   PROGRAM
+========================================================= */
+
+.program {
+    padding: 120px 60px;
+
+    background-color: #f7f5f0;
+}
+
+.program-header {
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.program-header h2 {
+    margin-bottom: 25px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.program-header > p:last-child {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.program-grid {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.program-card {
+    min-height: 300px;
+
+    padding: 40px;
+
+    border: 1px solid #d8d5cf;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #999999;
+}
+
+.card-number {
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.program-card h3 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+
+    font-size: 32px;
+}
+
+.program-card p {
+    max-width: 450px;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TESTIMONIES
+========================================================= */
+
+.testimonies {
+    padding: 120px 60px;
+
+    background-color: #111111;
+
+    color: #ffffff;
+}
+
+.testimonies-header {
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.testimonies-header h2 {
+    margin-bottom: 25px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.testimonies-header > p:last-child {
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #cccccc;
+}
+
+.testimonies-grid {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.testimony-card {
+    min-width: 0;
+
+    padding: 40px;
+
+    border: 1px solid #333333;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background-color: #151515;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.testimony-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #666666;
+}
+
+.quote-mark {
+    margin-bottom: 15px;
+
+    font-size: 70px;
+    line-height: 0.8;
+
+    font-weight: 700;
+}
+
+.testimony-text {
+    min-width: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 17px;
+    line-height: 1.75;
+
+    overflow-wrap: break-word;
+}
+
+.testimony-author {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.testimony-author strong {
+    font-size: 15px;
+}
+
+.testimony-author span {
+    color: #999999;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   VOLUNTEER
+========================================================= */
+
+.volunteer {
+    padding: 120px 60px;
+
+    background-color: #f7f5f0;
+}
+
+.volunteer-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.volunteer-heading h2 {
+    max-width: 500px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.volunteer-heading h2 span {
+    display: block;
+}
+
+.volunteer-content {
+    max-width: 550px;
+}
+
+.volunteer-intro {
+    margin-bottom: 30px;
+
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.volunteer-content p:not(.volunteer-intro) {
+    margin-bottom: 35px;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.volunteer-button {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+/* =========================================================
+   PARTNER / GIVE
+========================================================= */
+
+.partner {
+    padding: 120px 60px;
+
+    background-color: #111111;
+
+    color: #ffffff;
+}
+
+.partner-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.partner-heading h2 {
+    max-width: 550px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.partner-heading h2 span {
+    display: block;
+}
+
+.partner-content {
+    max-width: 550px;
+}
+
+.partner-intro {
+    margin-bottom: 30px;
+
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.partner-content p:not(.partner-intro) {
+    margin-bottom: 35px;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.partner-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.partner-buttons .btn-primary {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.partner-buttons .btn-primary:hover {
+    background-color: #eeeeee;
+}
+
+.partner-buttons .btn-secondary {
+    border-color: #ffffff;
+
+    color: #ffffff;
+}
+
+.partner-buttons .btn-secondary:hover {
+    background-color: #ffffff;
+
+    color: #111111;
+}
+
+
+/* =========================================================
+   GIVING CARD
+========================================================= */
+
+.giving-card {
+    max-width: 1200px;
+
+    margin: 80px auto 0;
+
+    padding: 50px;
+
+    background-color: #1b1b1b;
+
+    border: 1px solid #333333;
+}
+
+.giving-header {
+    margin-bottom: 40px;
+}
+
+.giving-header h3 {
+    margin-top: 10px;
+
+    font-size: 32px;
+}
+
+.bank-details {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.bank-detail {
+    padding: 25px;
+
+    border: 1px solid #333333;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.bank-detail span {
+    color: #888888;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.bank-detail strong {
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.account-number-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.copy-account-button {
+    padding: 8px 14px;
+
+    border: 1px solid #555555;
+
+    background-color: transparent;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.copy-account-button:hover {
+    background-color: #ffffff;
+
+    color: #111111;
+
+    border-color: #ffffff;
+}
+
+.copy-account-button:focus-visible {
+    outline: 2px solid #ffffff;
+
+    outline-offset: 3px;
+}
+
+.copy-message {
+    min-height: 20px;
+
+    color: #cccccc;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ACCOMMODATION
+========================================================= */
+
+.accommodation {
+    padding: 120px 60px;
+
+    background-color: #f7f5f0;
+}
+
+.accommodation-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.accommodation-heading h2 {
+    max-width: 550px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.accommodation-heading h2 span {
+    display: block;
+}
+
+.accommodation-content {
+    max-width: 550px;
+}
+
+.accommodation-intro {
+    margin-bottom: 30px;
+
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.accommodation-content p:not(.accommodation-intro) {
+    margin-bottom: 35px;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.accommodation-button {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.accommodation-note {
+    max-width: 1200px;
+
+    margin: 80px auto 0;
+
+    padding: 40px;
+
+    border: 1px solid #d8d5cf;
+}
+
+.accommodation-note h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+    font-size: 32px;
+}
+
+.accommodation-note p {
+    max-width: 600px;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.register {
+    padding: 160px 60px;
+
+    background-color: #111111;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.register-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.register-content h2 {
+    margin-bottom: 30px;
+
+    font-size: 64px;
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.register-content h2 span {
+    display: block;
+}
+
+.register-content > p:not(.section-label) {
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    color: #cccccc;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.register .btn-primary {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.register .btn-primary:hover {
+    background-color: #eeeeee;
+}
+
+
+/* =========================================================
+   MERCH
+========================================================= */
+
+.merch {
+    padding: 120px 60px;
+
+    background-color: #f7f5f0;
+}
+
+.merch-header {
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.merch-header h2 {
+    margin-bottom: 25px;
+
+    font-size: 56px;
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.merch-header h2 span {
+    display: block;
+}
+
+.merch-header > p:last-child {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.merch-grid {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+.merch-card {
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border: 1px solid #d8d5cf;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.merch-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.merch-image {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background-color: #eeeeee;
+}
+
+.merch-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.merch-info {
+    padding: 30px;
+}
+
+.merch-info h3 {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.merch-type {
+    margin-bottom: 15px;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+.merch-price {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MERCH CONTACT
+========================================================= */
+
+.merch-contact {
+    max-width: 800px;
+
+    margin: 80px auto 0;
+
+    padding: 60px;
+
+    background-color: #111111;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.merch-contact h3 {
+    margin-bottom: 20px;
+
+    font-size: 36px;
+}
+
+.merch-contact > p:not(.section-label) {
+    max-width: 550px;
+
+    margin: 0 auto 30px;
+
+    color: #cccccc;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.whatsapp-button {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.whatsapp-button:hover {
+    background-color: #eeeeee;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 60px;
+
+    background-color: #000000;
+
+    color: #ffffff;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.footer-brand h2 {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.footer-brand p {
+    color: #aaaaaa;
+}
+
+.footer-links {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition: opacity 0.25s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.65;
+}
+
+.footer-links a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: 60px auto 0;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #333333;
+}
+
+.footer-bottom p {
+    color: #888888;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 20px;
+
+        padding: 18px 20px;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+    }
+
+    .about-container,
+    .volunteer-container,
+    .partner-container,
+    .accommodation-container {
+        gap: 60px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .site-header {
+    padding: 25px 20px;
+
+    position: relative;
+}
+
+.header-container {
+    position: relative;
+
+    align-items: flex-start;
+}
+
+   .logo {
+    margin: 0;
+}
+
+    .logo img {
+        width: 190px;
+    }
+
+    .tagline {
+        margin: 10px 0 20px;
+
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .menu-toggle {
+    display: block;
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #111111;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+  /*
+   Mobile navigation is hidden by default.
+   It becomes visible when JavaScript adds
+   the .menu-open class.
+*/
+
+   .main-nav {
+    display: none;
+}
+
+.main-nav.menu-open {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 25px;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border-radius: 0;
+}
+
+    .main-nav.menu-open a {
+    width: 100%;
+
+    padding: 14px 10px;
+
+    border-bottom: 1px solid #dddddd;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+.main-nav.menu-open a:last-child {
+    border-bottom: none;
+}
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        padding: 70px 20px 80px;
+    }
+
+    .hero h1 {
+    font-size: 48px;
+
+    letter-spacing: -1.5px;
+}
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-image {
+        max-width: 350px;
+
+        margin-top: 50px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        padding: 80px 20px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-heading h2 {
+        font-size: 44px;
+    }
+
+    .about-intro {
+        font-size: 20px;
+    }
+
+
+    /* PROGRAM */
+
+    .program {
+        padding: 80px 20px;
+    }
+
+    .program-header {
+        margin-bottom: 50px;
+    }
+
+    .program-header h2 {
+        font-size: 44px;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-card {
+        min-height: 250px;
+    }
+
+
+    /* TESTIMONIES */
+
+    .testimonies {
+        padding: 80px 20px;
+    }
+
+    .testimonies-header {
+        margin-bottom: 50px;
+    }
+
+    .testimonies-header h2 {
+        font-size: 44px;
+    }
+
+    .testimonies-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* VOLUNTEER */
+
+    .volunteer {
+        padding: 80px 20px;
+    }
+
+    .volunteer-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .volunteer-heading h2 {
+        font-size: 44px;
+    }
+
+    /* PARTNER */
+
+    .partner {
+        padding: 80px 20px;
+    }
+
+    .partner-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .partner-heading h2 {
+        font-size: 44px;
+    }
+
+    .bank-details {
+        grid-template-columns: 1fr;
+    }
+
+    .giving-card {
+        padding: 30px 20px;
+    }
+
+
+    /* ACCOMMODATION */
+
+    .accommodation {
+        padding: 80px 20px;
+    }
+
+    .accommodation-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .accommodation-heading h2 {
+        font-size: 44px;
+    }
+
+    .accommodation-note {
+        margin-top: 50px;
+    }
+
+
+    /* REGISTER */
+
+    .register {
+        padding: 100px 20px;
+    }
+
+    .register-content h2 {
+        font-size: 48px;
+    }
+
+
+    /* MERCH */
+
+    .merch {
+        padding: 80px 20px;
+    }
+
+    .merch-header {
+        margin-bottom: 50px;
+    }
+
+    .merch-header h2 {
+        font-size: 44px;
+    }
+
+    .merch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .merch-contact {
+        padding: 40px 20px;
+    }
+
+    .merch-contact h3 {
+        font-size: 30px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 50px 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .site-header {
+        padding: 20px 16px;
+    }
+
+    .logo img {
+        width: 155px;
+    }
+
+    .menu-toggle {
+    top: 0;
+    right: 0;
+}
+
+    .tagline {
+        font-size: 10px;
+
+        letter-spacing: 1.2px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 56px 16px 60px;
+    }
+
+    .hero-label {
+        margin-bottom: 16px;
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+   .hero h1 {
+    margin-bottom: 18px;
+
+    font-size: 32px;
+    line-height: 1.1;
+
+    letter-spacing: -0.5px;
+}
+
+    .hero-description {
+        margin-bottom: 28px;
+
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        gap: 12px;
+
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+    width: auto;
+    padding: 16px 24px;
+}
+
+    .btn {
+    width: 100%;
+    min-height: 52px;
+
+    padding: 15px 20px;
+}
+
+    .hero-image {
+        margin-top: 40px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        padding: 64px 16px;
+    }
+
+    .about-container {
+        gap: 35px;
+    }
+
+    .about-heading h2 {
+        font-size: 34px;
+    }
+
+    .about-intro {
+        font-size: 17px;
+    }
+
+    .about-content p:not(.about-intro) {
+        font-size: 15px;
+    }
+
+
+    /* PROGRAM */
+
+    .program {
+        padding: 64px 16px;
+    }
+
+    .program-header {
+        margin-bottom: 32px;
+
+        text-align: left;
+    }
+
+    .program-header h2 {
+        font-size: 34px;
+    }
+
+    .program-header > p:last-child {
+        font-size: 15px;
+    }
+
+    .program-grid {
+        gap: 0;
+    }
+
+    .program-card {
+        min-height: auto;
+
+        padding: 24px 0;
+
+        border: none;
+
+        border-bottom: 1px solid #d8d5cf;
+    }
+
+    .program-card:last-child {
+        border-bottom: none;
+    }
+
+    .card-number {
+        display: none;
+    }
+
+    .program-card h3 {
+        margin: 0 0 12px;
+
+        font-size: 24px;
+    }
+
+    .program-card p {
+        font-size: 15px;
+    }
+
+
+    /* TESTIMONIES */
+
+    .testimonies {
+        padding: 64px 16px;
+    }
+
+    .testimonies-header {
+        margin-bottom: 32px;
+
+        text-align: left;
+    }
+
+    .testimonies-header h2 {
+        font-size: 34px;
+    }
+
+    .testimonies-header > p:last-child {
+        font-size: 15px;
+    }
+
+    .testimony-card {
+        padding: 24px;
+    }
+
+    .testimony-text {
+        font-size: 15px;
+    }
+
+    .quote-mark {
+        font-size: 52px;
+    }
+
+
+    /* VOLUNTEER */
+
+    .volunteer {
+        padding: 64px 16px;
+    }
+
+    .volunteer-heading h2 {
+        font-size: 34px;
+    }
+
+    .volunteer-intro {
+        font-size: 17px;
+    }
+
+    .volunteer-content p:not(.volunteer-intro) {
+        font-size: 15px;
+    }
+
+    .volunteer-card {
+        min-height: auto;
+
+        padding: 30px 25px;
+    }
+
+    .volunteer-button {
+    width: 100%;
+    max-width: 400px;
+}
+
+
+    /* PARTNER */
+
+    .partner {
+        padding: 64px 16px;
+    }
+
+    .partner-heading h2 {
+        font-size: 34px;
+    }
+
+    .partner-intro {
+        font-size: 17px;
+    }
+
+    .partner-content p:not(.partner-intro) {
+        font-size: 15px;
+    }
+
+    .partner-buttons {
+    flex-direction: column;
+}
+
+.partner-buttons .btn {
+    width: 100%;
+}
+
+
+    /* ACCOMMODATION */
+
+    .accommodation {
+        padding: 64px 16px;
+    }
+
+    .accommodation-heading h2 {
+        font-size: 34px;
+    }
+
+    .accommodation-intro {
+        font-size: 17px;
+    }
+
+    .accommodation-content p:not(.accommodation-intro) {
+        font-size: 15px;
+    }
+
+    .accommodation-note {
+        padding: 25px;
+    }
+
+    .accommodation-note h3 {
+        font-size: 26px;
+    }
+
+    .accommodation-button {
+    width: 100%;
+    max-width: 400px;
+}
+
+
+    /* REGISTER */
+
+    .register {
+        padding: 80px 16px;
+    }
+
+    .register-content h2 {
+        font-size: 38px;
+    }
+
+    .register-content > p:not(.section-label) {
+        font-size: 15px;
+    }
+
+    .register .btn {
+    width: 100%;
+    max-width: 400px;
+}
+
+
+    /* MERCH */
+
+    .merch {
+        padding: 64px 16px;
+    }
+
+    .merch-header {
+        margin-bottom: 32px;
+
+        text-align: left;
+    }
+
+    .merch-header h2 {
+        font-size: 34px;
+    }
+
+    .merch-header > p:last-child {
+        font-size: 15px;
+    }
+
+    .merch-grid {
+        gap: 20px;
+    }
+
+    .merch-info {
+        padding: 22px;
+    }
+
+    .merch-info h3 {
+        font-size: 22px;
+    }
+
+    .merch-price {
+        font-size: 20px;
+    }
+
+    .whatsapp-button {
+    width: 100%;
+    max-width: 400px;
+}
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 40px 16px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+
+        gap: 24px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    /* MOBILE CTA BUTTONS */
+
+    .btn {
+        width: 100%;
+        min-height: 52px;
+
+        padding: 15px 20px;
+    }
+
+    .partner-buttons {
+        flex-direction: column;
+    }
+
+    .partner-buttons .btn {
+        width: 100%;
+    }
+
+    .volunteer-button,
+    .accommodation-button,
+    .whatsapp-button {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .register .btn {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+    }
+
+}

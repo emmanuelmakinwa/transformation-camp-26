@@ -1,101 +1,156 @@
-const menuButton = document.querySelector(".menu-toggle");
- 
-const navigation = document.querySelector(".main-nav");
+/* =========================================================
+   TRANSFORMATION CAMP 26
+   MAIN JAVASCRIPT
+========================================================= */
 
-const navigationLinks = document.querySelectorAll(".main-nav a");
+(function () {
+    "use strict";
 
-menuButton.addEventListener("click", function () {
+    /* =====================================================
+       DOM ELEMENTS
+    ===================================================== */
 
-    navigation.classList.toggle("menu-open");
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".main-nav");
+    const navigationLinks = document.querySelectorAll(".main-nav a");
+    const accountNumber = document.querySelector("#account-number");
+    const copyAccountButton = document.querySelector("#copy-account-button");
+    const copyMessage = document.querySelector("#copy-message");
 
-    const menuIsOpen = navigation.classList.contains("menu-open");
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
 
-    if (menuIsOpen) {
+    function setMenuState(isOpen) {
+        if (!menuButton || !navigation) return;
 
-        menuButton.textContent = "✕";
-
+        navigation.classList.toggle("menu-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
         menuButton.setAttribute(
             "aria-label",
-            "Close navigation menu"
+            isOpen ? "Close navigation menu" : "Open navigation menu"
         );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    } else {
-
-        menuButton.textContent = "☰";
-
-        menuButton.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
     }
 
-});
+    function closeMenu() {
+        setMenuState(false);
+    }
 
-navigationLinks.forEach(function (link) {
+    function openMenu() {
+        setMenuState(true);
+    }
 
-    link.addEventListener("click", function () {
+    function toggleMenu() {
+        if (!navigation) return;
+        setMenuState(!navigation.classList.contains("menu-open"));
+    }
 
-        navigation.classList.remove("menu-open");
+    if (menuButton && navigation) {
+        menuButton.addEventListener("click", function (event) {
+            event.stopPropagation();
+            toggleMenu();
+        });
 
-        menuButton.textContent = "☰";
+        navigationLinks.forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
 
-        menuButton.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
+        document.addEventListener("click", function (event) {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            const clickedInsideHeader = target.closest(".site-header");
+            if (!clickedInsideHeader) closeMenu();
+        });
 
-    });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && navigation.classList.contains("menu-open")) {
+                closeMenu();
+                menuButton.focus();
+            }
+        });
 
-});
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 900) closeMenu();
+        }, { passive: true });
+    }
 
-const accountNumber = document.querySelector("#account-number");
+    /* =====================================================
+       COPY ACCOUNT NUMBER
+    ===================================================== */
 
-const copyAccountButton = document.querySelector("#copy-account-button");
+    async function copyText(text) {
+        if (!text) throw new Error("Nothing to copy.");
 
-const copyMessage = document.querySelector("#copy-message");
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+            return true;
+        }
 
+        const temporaryInput = document.createElement("textarea");
+        temporaryInput.value = text;
+        temporaryInput.setAttribute("readonly", "");
+        temporaryInput.setAttribute("aria-hidden", "true");
+        temporaryInput.style.position = "fixed";
+        temporaryInput.style.top = "-9999px";
+        temporaryInput.style.left = "-9999px";
+        temporaryInput.style.opacity = "0";
+        temporaryInput.style.pointerEvents = "none";
 
-copyAccountButton.addEventListener("click", async function () {
+        document.body.appendChild(temporaryInput);
+        temporaryInput.focus();
+        temporaryInput.select();
+        temporaryInput.setSelectionRange(0, temporaryInput.value.length);
 
-    try {
+        let copied = false;
+        try {
+            copied = document.execCommand("copy");
+        } catch (error) {
+            copied = false;
+        } finally {
+            temporaryInput.remove();
+        }
 
-        await navigator.clipboard.writeText(
-            accountNumber.textContent.trim()
-        );
+        if (!copied) throw new Error("Copy command failed.");
+        return true;
+    }
+
+    function showCopySuccess() {
+        if (!copyMessage || !copyAccountButton) return;
 
         copyMessage.textContent = "Account number copied!";
-
         copyAccountButton.textContent = "Copied";
+        copyAccountButton.setAttribute("aria-label", "Account number copied");
 
-        setTimeout(function () {
-
+        window.setTimeout(function () {
             copyMessage.textContent = "";
-
             copyAccountButton.textContent = "Copy";
-
+            copyAccountButton.setAttribute("aria-label", "Copy account number");
         }, 2000);
-
-    } catch (error) {
-
-        copyMessage.textContent =
-            "Unable to copy. Please copy the number manually.";
-
     }
 
-});
+    function showCopyError() {
+        if (!copyMessage || !copyAccountButton) return;
+
+        copyMessage.textContent = "Unable to copy. Please copy the number manually.";
+        copyAccountButton.textContent = "Copy";
+    }
+
+    if (accountNumber && copyAccountButton && copyMessage) {
+        copyAccountButton.addEventListener("click", async function () {
+            const number = accountNumber.textContent.trim();
+
+            if (!number) {
+                showCopyError();
+                return;
+            }
+
+            try {
+                await copyText(number);
+                showCopySuccess();
+            } catch (error) {
+                showCopyError();
+            }
+        });
+    }
+})();

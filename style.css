@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    TRANSFORMATION CAMP 26
    MAIN STYLESHEET
 ========================================================= */
@@ -24,9 +24,9 @@
 
     --color-white: #ffffff;
 
-    --color-accent: #2563eb;
+    --color-accent: #df5a3f;
 
-    --color-accent-dark: #1d4ed8;
+    --color-accent-dark: #d85b3f;
 
     --color-text: #555555;
 
@@ -3265,7 +3265,7 @@ span:last-child {
 
 
 /* =========================================================
-   EXPERIENCE â€” TOUCH DEVICES
+   EXPERIENCE — TOUCH DEVICES
 ========================================================= */
 
 @media (max-width: 900px) and (hover: hover) {
@@ -4228,4 +4228,3 @@ select {
         padding-inline: 12px;
     }
 }
-

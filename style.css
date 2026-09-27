@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    TRANSFORMATION CAMP 26
    MAIN STYLESHEET
 ========================================================= */
@@ -3265,7 +3265,7 @@ span:last-child {
 
 
 /* =========================================================
-   EXPERIENCE — TOUCH DEVICES
+   EXPERIENCE â€” TOUCH DEVICES
 ========================================================= */
 
 @media (max-width: 900px) and (hover: hover) {
@@ -4226,5 +4226,553 @@ select {
 
     .hero {
         padding-inline: 12px;
+    }
+}
+
+/* =========================================================
+   TRANSFORMATION CAMP 26 - APPROVED VISUAL SYSTEM
+   CSS-ONLY REBUILD
+   Preserves existing HTML, JavaScript, assets, links,
+   forms, functionality, selectors/hooks and layout intent.
+========================================================= */
+
+:root {
+    --color-black: #242208;
+    --color-black-soft: #2b2910;
+    --color-black-light: #343117;
+
+    --color-cream: #d2e9f2;
+    --color-cream-light: #ecf2f4;
+    --color-page: #ecf2f4;
+    --color-white: #ffffff;
+
+    --color-accent: #e9ea5b;
+    --color-accent-dark: #d8d94d;
+
+    --color-growth: #90dd99;
+    --color-earth: #745e45;
+
+    --color-text: #46545a;
+    --color-muted: #66757b;
+    --color-border: #c7d6dc;
+    --color-border-dark: #4b4a2a;
+
+    --container-width: 1200px;
+    --header-height: 82px;
+    --mobile-header-height: 76px;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 64px;
+    --space-11: 80px;
+    --space-12: 96px;
+    --space-13: 120px;
+    --space-14: 150px;
+
+    --radius-small: 8px;
+    --radius-medium: 10px;
+    --radius-large: 18px;
+    --radius-pill: 999px;
+
+    --shadow-card: 0 15px 35px rgba(36, 34, 8, 0.10);
+    --shadow-soft: 0 8px 24px rgba(36, 34, 8, 0.08);
+
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.25s ease;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-black);
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+body {
+    background-color: var(--color-page);
+    color: var(--color-black);
+}
+
+.site-header {
+    background: rgba(236, 242, 244, 0.94);
+    border-bottom-color: rgba(36, 34, 8, 0.10);
+}
+
+.main-nav a {
+    color: #3f4135;
+}
+
+.main-nav a::after,
+.footer-links a::after {
+    background: var(--color-accent);
+}
+
+.main-nav a:hover {
+    color: var(--color-black);
+}
+
+.header-register {
+    background: var(--color-black);
+}
+
+.header-register:hover {
+    background: var(--color-accent);
+    color: var(--color-black);
+}
+
+.btn-primary {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+.btn-secondary {
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.hero {
+    background-color: var(--color-cream);
+}
+
+.hero-label,
+.hero h1 .hero-large {
+    color: var(--color-black);
+}
+
+.hero-actions .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+    border-color: var(--color-accent);
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+.hero-description {
+    color: var(--color-text);
+}
+
+.about,
+.testimonies {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.section-number,
+.section-intro h2 span,
+.about-statement h3 span,
+.inline-link span,
+.quote-mark,
+.testimonies-header .section-label {
+    color: var(--color-accent);
+}
+
+.section-intro-copy .lead,
+.section-intro h2,
+.testimonies-header h2 {
+    color: var(--color-white);
+}
+
+.section-intro-copy p:not(.lead),
+.about-statement p,
+.testimonies-header > p:last-child {
+    color: #c1c9cb;
+}
+
+.about-grid,
+.testimonies-grid {
+    background-color: var(--color-border-dark);
+}
+
+.about-statement,
+.testimony-card {
+    background-color: var(--color-black-soft);
+    border-color: var(--color-border-dark);
+}
+
+.about-statement:hover,
+.testimony-card:hover {
+    background-color: var(--color-black-light);
+}
+
+.testimony-text {
+    color: #e4eaec;
+}
+
+.testimony-author {
+    border-top-color: var(--color-border-dark);
+}
+
+.experience {
+    background-color: var(--color-cream-light);
+}
+
+.section-intro-centered .section-number,
+.section-intro-centered h2 span,
+.card-kicker,
+.card-arrow {
+    color: var(--color-black);
+}
+
+.section-intro-centered > p:last-child,
+.experience-card > div:last-child > p:last-child {
+    color: var(--color-muted);
+}
+
+.experience-grid {
+    background-color: var(--color-border);
+}
+
+.experience-card {
+    background-color: var(--color-cream-light);
+    border-color: var(--color-border);
+}
+
+.experience-card:hover {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-soft);
+}
+
+.involved {
+    background-color: var(--color-cream);
+    color: var(--color-black);
+}
+
+.involved .section-intro h2 {
+    color: var(--color-black);
+}
+
+.involved .section-intro h2 span {
+    color: var(--color-black);
+}
+
+.involved-card {
+    background-color: var(--color-white);
+    border-color: var(--color-border);
+}
+
+.involved-card .card-kicker,
+.involved-card h3 span,
+.involved-card > p:not(.card-kicker) {
+    color: var(--color-muted);
+}
+
+.involved-card .inline-link {
+    border-color: var(--color-black);
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+.involved-card .inline-link:hover {
+    background: var(--color-black);
+    border-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.involved-card .inline-link span {
+    color: var(--color-accent);
+}
+
+.giving-card {
+    background: var(--color-black);
+    border-color: var(--color-border-dark);
+}
+
+.giving-heading .card-kicker,
+.copy-message {
+    color: var(--color-accent);
+}
+
+.giving-heading h3 {
+    color: var(--color-white);
+}
+
+.giving-heading h3 span {
+    color: #c7ced0;
+}
+
+.bank-detail {
+    background: var(--color-black-soft);
+    border-color: var(--color-border-dark);
+}
+
+.bank-detail > span {
+    color: #aeb9bd;
+}
+
+.bank-detail strong {
+    color: var(--color-white);
+}
+
+.copy-account-button {
+    border-color: #6c704e;
+    color: var(--color-white);
+}
+
+.copy-account-button:hover {
+    background: var(--color-accent);
+    color: var(--color-black);
+    border-color: var(--color-accent);
+}
+
+.plan {
+    background-color: var(--color-cream-light);
+}
+
+.plan-card {
+    border-color: var(--color-border);
+}
+
+.plan-register .plan-kicker,
+.plan-register h3 span,
+.plan-register .plan-description {
+    color: var(--color-muted);
+}
+
+.plan-accommodation-button {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-black);
+}
+
+.plan-accommodation-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+    border-color: var(--color-accent);
+}
+
+.plan-register-button {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+    border-color: var(--color-accent);
+}
+
+.plan-register-button:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+.merch {
+    background-color: var(--color-page);
+}
+
+.merch-header h2 span {
+    color: var(--color-black);
+}
+
+.merch-header > p:last-child,
+.merch-type {
+    color: var(--color-muted);
+}
+
+.merch-card {
+    background-color: var(--color-white);
+    border-color: var(--color-border);
+}
+
+.merch-card:hover {
+    box-shadow: var(--shadow-card);
+}
+
+.merch-image {
+    background-color: var(--color-cream-light);
+}
+
+.merch-info h3,
+.merch-price {
+    color: var(--color-black);
+}
+
+.whatsapp-button {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+.whatsapp-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-black);
+    border-color: var(--color-accent);
+}
+
+.site-footer {
+    background: var(--color-black);
+    color: var(--color-white);
+    border-top-color: var(--color-border-dark);
+}
+
+.footer-tagline {
+    color: #c1c9cb;
+}
+
+.footer-cta {
+    border-color: #6c704e;
+}
+
+.footer-cta span,
+.footer-column-title {
+    color: var(--color-accent);
+}
+
+.footer-cta:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-black);
+}
+
+.footer-links a {
+    color: #d9e1e3;
+}
+
+.footer-links a:hover {
+    color: var(--color-white);
+}
+
+.footer-bottom {
+    border-top-color: var(--color-border-dark);
+}
+
+.privacy-hero {
+    background-color: var(--color-black);
+}
+
+.privacy-intro {
+    color: #c1c9cb;
+}
+
+.privacy-content {
+    background-color: var(--color-white);
+}
+
+.privacy-updated {
+    color: var(--color-muted);
+}
+
+.privacy-content p {
+    color: #46545a;
+}
+
+/* ============================================================
+   TRANSFORMATION CAMP 26 — HERO CAMPAIGN HEADLINE
+   ============================================================ */
+
+.hero h1 .hero-small,
+.hero h1 .hero-large {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+
+.hero h1 .hero-small {
+    font-size: 0.58em;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+}
+
+.hero h1 .hero-large {
+    font-size: 1em;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+}
+
+/* ============================================================
+   MOBILE READABILITY + FOOTER FIXES
+   ============================================================ */
+
+/* What to Expect — heading contrast */
+.section-intro-centered h2 {
+    color: var(--color-black);
+}
+
+.section-intro-centered h2 span {
+    color: var(--color-accent-dark);
+}
+
+
+/* Footer — prevent mobile clipping and horizontal crowding */
+@media (max-width: 700px) {
+
+    .footer-container {
+        width: min(calc(100% - 40px), 1200px);
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .footer-brand {
+        max-width: none;
+    }
+
+    .footer-navigation-group {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+
+    .footer-links a {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-bottom p,
+    .footer-credit {
+        max-width: 100%;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+/* Extra protection for very narrow phones */
+@media (max-width: 380px) {
+
+    .footer-container {
+        width: min(calc(100% - 32px), 1200px);
+    }
+
+    .footer-navigation-group {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        margin-top: 48px;
     }
 }

@@ -5025,3 +5025,35 @@ main > #merch {
     }
 }
 
+
+/* =========================================================
+   FIX: GET INVOLVED ABOVE MERCH ON DESKTOP
+========================================================= */
+
+@media (min-width: 701px) {
+    main {
+        display: block !important;
+    }
+
+    main > #volunteer,
+    main > #merch {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        float: none !important;
+        clear: both !important;
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        grid-column: 1 / -1 !important;
+    }
+
+    main > #volunteer {
+        margin-bottom: 0 !important;
+    }
+
+    main > #merch {
+        margin-top: 0 !important;
+    }
+}
+

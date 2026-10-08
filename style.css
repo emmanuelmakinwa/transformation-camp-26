@@ -5057,3 +5057,43 @@ main > #merch {
     }
 }
 
+
+/* =========================================================
+   DEFINITIVE DESKTOP FIX — GET INVOLVED THEN MERCH
+========================================================= */
+
+@media (min-width: 701px) {
+    main > section#volunteer {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        float: none !important;
+        clear: both !important;
+        grid-area: auto !important;
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        flex: none !important;
+        order: initial !important;
+    }
+
+    main > section#merch {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        float: none !important;
+        clear: both !important;
+        grid-area: auto !important;
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        flex: none !important;
+        order: initial !important;
+    }
+
+    main > section#volunteer + section#merch {
+        margin-top: 0 !important;
+        clear: both !important;
+    }
+}
+

@@ -4989,3 +4989,39 @@ main > #merch {
     max-width: 100% !important;
     flex: 0 0 auto !important;
 }
+/* =========================================================
+   DESKTOP SECTION FLOW — GET INVOLVED ABOVE MERCH
+   Keep the two sections as separate full-width blocks.
+========================================================= */
+
+@media (min-width: 701px) {
+    main {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+
+    main > section#volunteer,
+    main > section#merch {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        float: none !important;
+        clear: both !important;
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        grid-column: auto !important;
+    }
+
+    main > section#volunteer {
+        margin-bottom: 0 !important;
+    }
+
+    main > section#merch {
+        margin-top: 0 !important;
+    }
+}
+

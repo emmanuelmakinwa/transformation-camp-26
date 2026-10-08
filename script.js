@@ -16,6 +16,11 @@
     const accountNumber = document.querySelector("#account-number");
     const copyAccountButton = document.querySelector("#copy-account-button");
     const copyMessage = document.querySelector("#copy-message");
+    const registrationForm = document.querySelector("#registration-form");
+    const registrationSubmit = document.querySelector("#registration-submit");
+    const registrationSubmitText = document.querySelector("#registration-submit-text");
+    const registrationSubmitArrow = document.querySelector("#registration-submit-arrow");
+    const registrationMessage = document.querySelector("#registration-message");
 
     /* =====================================================
        MOBILE NAVIGATION
@@ -154,3 +159,141 @@
         });
     }
 })();
+
+    /* =====================================================
+       CAMP REGISTRATION
+    ===================================================== */
+
+    function showRegistrationMessage(message, type) {
+        if (!registrationMessage) return;
+
+        registrationMessage.textContent = message;
+        registrationMessage.className = "registration-message";
+
+        if (type) {
+            registrationMessage.classList.add(
+                "registration-message-" + type
+            );
+        }
+    }
+
+    function setRegistrationLoading(isLoading) {
+        if (!registrationSubmit) return;
+
+        registrationSubmit.disabled = isLoading;
+        registrationSubmit.setAttribute(
+            "aria-busy",
+            String(isLoading)
+        );
+
+        if (registrationSubmitText) {
+            registrationSubmitText.textContent = isLoading
+                ? "SUBMITTING..."
+                : "REGISTER FOR CAMP";
+        }
+
+        if (registrationSubmitArrow) {
+            registrationSubmitArrow.textContent = isLoading
+                ? ""
+                : "→";
+        }
+    }
+
+    function getRegistrationData() {
+        if (!registrationForm) return null;
+
+        const formData = new FormData(registrationForm);
+
+        return {
+            first_name: String(formData.get("first_name") || "").trim(),
+            last_name: String(formData.get("last_name") || "").trim(),
+            email: String(formData.get("email") || "").trim(),
+            phone: String(formData.get("phone") || "").trim(),
+            gender: String(formData.get("gender") || "").trim(),
+            country: String(formData.get("country") || "").trim(),
+            state: String(formData.get("state") || "").trim(),
+            city: String(formData.get("city") || "").trim(),
+            accommodation_required:
+                formData.get("accommodation_required") === "true"
+        };
+    }
+
+    if (registrationForm) {
+        registrationForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            if (!registrationForm.checkValidity()) {
+                registrationForm.reportValidity();
+                return;
+            }
+
+            showRegistrationMessage("", "");
+            setRegistrationLoading(true);
+
+            try {
+                const response = await fetch("/api/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(getRegistrationData())
+                });
+
+                let result = {};
+
+                try {
+                    result = await response.json();
+                } catch (error) {
+                    result = {};
+                }
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.error ||
+                        "Unable to complete registration. Please try again."
+                    );
+                }
+
+                showRegistrationMessage(
+                    "Registration successful! Your registration reference is " +
+                    result.registration_reference +
+                    ".",
+                    "success"
+                );
+
+                registrationForm.reset();
+
+                if (registrationSubmitText) {
+                    registrationSubmitText.textContent = "REGISTERED";
+                }
+
+                if (registrationSubmitArrow) {
+                    registrationSubmitArrow.textContent = "✓";
+                }
+
+            } catch (error) {
+                showRegistrationMessage(
+                    error.message ||
+                    "Unable to complete registration. Please try again.",
+                    "error"
+                );
+
+            } finally {
+                setRegistrationLoading(false);
+
+                if (
+                    registrationSubmitText &&
+                    registrationSubmitText.textContent === "REGISTERED"
+                ) {
+                    registrationSubmitText.textContent = "REGISTER FOR CAMP";
+                }
+
+                if (
+                    registrationSubmitArrow &&
+                    registrationSubmitArrow.textContent === "✓"
+                ) {
+                    registrationSubmitArrow.textContent = "→";
+                }
+            }
+        });
+    }

@@ -837,51 +837,240 @@
 
             <!-- REGISTER -->
 
-            <article
-                id="register"
-                class="plan-card plan-register"
-            >
+<article
+    id="register"
+    class="plan-card plan-register"
+>
 
-                <div class="plan-card-content">
+    <div class="plan-card-content">
 
-                    <p class="plan-kicker">
-                        TRANSFORMATION CAMP 26
-                    </p>
+        <p class="plan-kicker">
+            TRANSFORMATION CAMP 26
+        </p>
 
-                    <h3>
-                        Register
-                        <span>for Camp</span>
-                    </h3>
+        <h3>
+            Register
+            <span>for Camp</span>
+        </h3>
 
-                    <p class="plan-description">
-                        Take the next step and register
-                        for Transformation Camp 26.
-                    </p>
-
-                </div>
-
-
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdUSJvwUlfpmQZe45fvWgjTLsc1w-ofT6SPybaik-VH047Z0Q/viewform"
-                    class="btn plan-register-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-            referrerpolicy="no-referrer"
-                >
-                    REGISTER FOR CAMP
-
-                    <span aria-hidden="true">
-                        →
-                    </span>
-                </a>
-
-            </article>
-
-        </div>
+        <p class="plan-description">
+            Take the next step and register
+            for Transformation Camp 26.
+        </p>
 
     </div>
 
-</section>
+
+    <form
+        id="registration-form"
+        class="registration-form"
+        novalidate
+    >
+
+        <div class="registration-form-grid">
+
+            <div class="form-field">
+                <label for="first-name">
+                    First Name
+                </label>
+
+                <input
+                    type="text"
+                    id="first-name"
+                    name="first_name"
+                    autocomplete="given-name"
+                    maxlength="80"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="last-name">
+                    Last Name
+                </label>
+
+                <input
+                    type="text"
+                    id="last-name"
+                    name="last_name"
+                    autocomplete="family-name"
+                    maxlength="80"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="tel"
+                    maxlength="20"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="gender">
+                    Gender
+                </label>
+
+                <select
+                    id="gender"
+                    name="gender"
+                    required
+                >
+                    <option value="">
+                        Select gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="form-field">
+                <label for="country">
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    autocomplete="country-name"
+                    maxlength="80"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="state">
+                    State
+                </label>
+
+                <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    autocomplete="address-level1"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="city">
+                    City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    autocomplete="address-level2"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+        </div>
+
+
+        <fieldset class="registration-accommodation">
+
+            <legend>
+                Would you like to reserve your accommodation for camp?
+            </legend>
+
+            <div class="registration-radio-group">
+
+                <label class="registration-radio">
+                    <input
+                        type="radio"
+                        name="accommodation_required"
+                        value="true"
+                        required
+                    >
+
+                    <span>Yes</span>
+                </label>
+
+
+                <label class="registration-radio">
+                    <input
+                        type="radio"
+                        name="accommodation_required"
+                        value="false"
+                    >
+
+                    <span>No</span>
+                </label>
+
+            </div>
+
+        </fieldset>
+
+
+        <div
+            id="registration-message"
+            class="registration-message"
+            role="status"
+            aria-live="polite"
+        ></div>
+
+
+        <button
+            type="submit"
+            id="registration-submit"
+            class="btn plan-register-button"
+        >
+            <span id="registration-submit-text">
+                REGISTER FOR CAMP
+            </span>
+
+            <span
+                id="registration-submit-arrow"
+                aria-hidden="true"
+            >
+                →
+            </span>
+        </button>
+
+    </form>
+
+</article>
 
 
 <!-- =========================================================

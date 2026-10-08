@@ -1447,16 +1447,12 @@ span:last-child {
 }
 
 
-.involved-grid {
+ .involved-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+    grid-template-columns: 1fr;
 
-    gap: 18px;
+    gap: 24px;
 }
 
 
@@ -2059,6 +2055,117 @@ span:last-child {
     color: #6e6a63;
 }
 
+/* NATIVE CAMP REGISTRATION FORM */
+
+.registration-form {
+    width: 100%;
+    margin-top: 34px;
+}
+
+.registration-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label,
+.registration-accommodation legend {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    background: var(--color-white);
+    color: var(--color-black);
+    font: inherit;
+    outline: none;
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: var(--color-accent-dark);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.form-field input::placeholder {
+    color: var(--color-muted);
+}
+
+.registration-accommodation {
+    margin: 24px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.registration-accommodation legend {
+    margin-bottom: 12px;
+}
+
+.registration-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.registration-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.registration-radio input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-accent-dark);
+}
+
+.registration-message {
+    min-height: 24px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.registration-message-success {
+    color: #2f6b3c;
+}
+
+.registration-message-error {
+    color: #a12f2f;
+}
+
+.registration-form .plan-register-button {
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.registration-form .plan-register-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
 
 /* PLAN BUTTONS */
 
@@ -2195,11 +2302,7 @@ span:last-child {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+    grid-template-columns: 1fr;
 
     gap: 24px;
 
@@ -4775,4 +4878,114 @@ body {
     .footer-bottom {
         margin-top: 48px;
     }
+}
+
+/* NATIVE REGISTRATION FORM - RESPONSIVE */
+
+@media (max-width: 700px) {
+    .registration-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        margin-top: 28px;
+    }
+}
+
+/* DESKTOP SINGLE-COLUMN LAYOUT */
+
+@media (min-width: 701px) {
+
+    .involved-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+
+    .merch-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+
+}
+
+/* FINAL DESKTOP STACK — GET INVOLVED + MERCH */
+
+@media (min-width: 701px) {
+
+    .involved-grid,
+    .merch-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 24px !important;
+    }
+
+    .involved-grid > *,
+    .merch-grid > * {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+}
+
+/* =========================================================
+   GET INVOLVED + MERCH — FORCE VERTICAL SECTION FLOW
+   Get Involved first, Merch directly underneath.
+========================================================= */
+
+main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+main > #volunteer,
+main > #merch {
+    display: block !important;
+    position: relative !important;
+    float: none !important;
+    clear: both !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+main > #volunteer {
+    margin-bottom: 24px !important;
+}
+
+main > #merch {
+    margin-top: 0 !important;
+}
+
+/* =========================================================
+   FINAL SECTION FLOW — GET INVOLVED ABOVE MERCH
+   Keeps all internal card layouts unchanged.
+========================================================= */
+
+main {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+main > #volunteer {
+    order: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+main > #merch {
+    order: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
 }

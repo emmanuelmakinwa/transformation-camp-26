@@ -1468,6 +1468,10 @@ span:last-child {
     display: flex;
 
     flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
 }
 
 
@@ -1892,10 +1896,7 @@ span:last-child {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        1fr;
 
     gap: 1px;
 
@@ -2302,7 +2303,7 @@ span:last-child {
 
     display: grid;
 
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 24px;
 
@@ -3317,7 +3318,7 @@ span:last-child {
 
 
     .merch-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
         gap: 20px;
     }
@@ -3368,7 +3369,7 @@ span:last-child {
 
 
 /* =========================================================
-   EXPERIENCE â€” TOUCH DEVICES
+   EXPERIENCE Ã¢â‚¬â€ TOUCH DEVICES
 ========================================================= */
 
 @media (max-width: 900px) and (hover: hover) {
@@ -3823,7 +3824,7 @@ span:last-child {
     .merch-grid {
         width: 100%;
 
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
         gap: 18px;
     }
@@ -4102,7 +4103,7 @@ button,
     }
 
     .footer-navigation-group {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 24px;
     }
 
@@ -4780,7 +4781,7 @@ body {
 }
 
 /* ============================================================
-   TRANSFORMATION CAMP 26 — HERO CAMPAIGN HEADLINE
+   TRANSFORMATION CAMP 26 â€” HERO CAMPAIGN HEADLINE
    ============================================================ */
 
 .hero h1 .hero-small,
@@ -4807,7 +4808,7 @@ body {
    MOBILE READABILITY + FOOTER FIXES
    ============================================================ */
 
-/* What to Expect — heading contrast */
+/* What to Expect â€” heading contrast */
 .section-intro-centered h2 {
     color: var(--color-black);
 }
@@ -4817,7 +4818,7 @@ body {
 }
 
 
-/* Footer — prevent mobile clipping and horizontal crowding */
+/* Footer â€” prevent mobile clipping and horizontal crowding */
 @media (max-width: 700px) {
 
     .footer-container {
@@ -4825,7 +4826,7 @@ body {
     }
 
     .footer-main {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 48px;
     }
 
@@ -4892,208 +4893,89 @@ body {
     }
 }
 
-/* DESKTOP SINGLE-COLUMN LAYOUT */
+/* =========================================================
+   FINAL DESKTOP LAYOUT FIX
+   GET INVOLVED ABOVE MERCH
+   Keep these two sections stacked vertically on desktop.
+========================================================= */
 
 @media (min-width: 701px) {
-
-    .involved-grid {
-        grid-template-columns: 1fr !important;
-        gap: 24px;
-    }
-
-    .merch-grid {
-        grid-template-columns: 1fr !important;
-        gap: 24px;
-    }
-
-}
-
-/* FINAL DESKTOP STACK — GET INVOLVED + MERCH */
-
-@media (min-width: 701px) {
-
-    .involved-grid,
-    .merch-grid {
+    /* The main page flow must be one vertical column. */
+    main {
         display: flex !important;
         flex-direction: column !important;
-        width: 100% !important;
-        gap: 24px !important;
-    }
-
-    .involved-grid > *,
-    .merch-grid > * {
+        align-items: stretch !important;
         width: 100% !important;
         max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-}
-
-/* =========================================================
-   GET INVOLVED + MERCH — FORCE VERTICAL SECTION FLOW
-   Get Involved first, Merch directly underneath.
-========================================================= */
-
-main {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-}
-
-main > #volunteer,
-main > #merch {
-    display: block !important;
-    position: relative !important;
-    float: none !important;
-    clear: both !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-main > #volunteer {
-    margin-bottom: 24px !important;
-}
-
-main > #merch {
-    margin-top: 0 !important;
-}
-
-/* =========================================================
-   FINAL SECTION FLOW — GET INVOLVED ABOVE MERCH
-   Keeps all internal card layouts unchanged.
-========================================================= */
-
-main {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-}
-
-main > #volunteer {
-    order: 1 !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important;
-}
-
-main > #merch {
-    order: 2 !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important;
-}
-/* =========================================================
-   DESKTOP SECTION FLOW — GET INVOLVED ABOVE MERCH
-   Keep the two sections as separate full-width blocks.
-========================================================= */
-
-@media (min-width: 701px) {
-    main {
+    /* Get Involved and Merch are full-width sections, never columns. */
+    main > .involved,
+    main > .merch {
         display: block !important;
-        width: 100% !important;
-        max-width: none !important;
-        min-width: 0 !important;
-    }
-
-    main > section#volunteer,
-    main > section#merch {
-        display: block !important;
-        width: 100% !important;
-        max-width: none !important;
-        min-width: 0 !important;
+        position: relative !important;
         float: none !important;
         clear: both !important;
-        position: relative !important;
-        inset: auto !important;
-        transform: none !important;
-        grid-column: auto !important;
-    }
-
-    main > section#volunteer {
-        margin-bottom: 0 !important;
-    }
-
-    main > section#merch {
-        margin-top: 0 !important;
-    }
-}
-
-
-/* =========================================================
-   FIX: GET INVOLVED ABOVE MERCH ON DESKTOP
-========================================================= */
-
-@media (min-width: 701px) {
-    main {
-        display: block !important;
-    }
-
-    main > #volunteer,
-    main > #merch {
-        display: block !important;
-        width: 100% !important;
-        max-width: none !important;
-        float: none !important;
-        clear: both !important;
-        position: relative !important;
-        inset: auto !important;
-        transform: none !important;
-        grid-column: 1 / -1 !important;
-    }
-
-    main > #volunteer {
-        margin-bottom: 0 !important;
-    }
-
-    main > #merch {
-        margin-top: 0 !important;
-    }
-}
-
-
-/* =========================================================
-   DEFINITIVE DESKTOP FIX — GET INVOLVED THEN MERCH
-========================================================= */
-
-@media (min-width: 701px) {
-    main > section#volunteer {
-        display: block !important;
+        flex: 0 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
-        position: relative !important;
-        float: none !important;
-        clear: both !important;
-        grid-area: auto !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         grid-column: 1 / -1 !important;
         grid-row: auto !important;
-        flex: none !important;
-        order: initial !important;
+        transform: none !important;
     }
 
-    main > section#merch {
-        display: block !important;
+    /* Explicit order: Get Involved first, Merch underneath. */
+    main > .involved {
+        order: 1 !important;
+    }
+
+    main > .merch {
+        order: 2 !important;
+    }
+
+    /* Keep the internal grids single-column as well. */
+    .involved-grid,
+    .merch-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
         width: 100% !important;
-        max-width: 100% !important;
-        position: relative !important;
-        float: none !important;
-        clear: both !important;
-        grid-area: auto !important;
-        grid-column: 1 / -1 !important;
-        grid-row: auto !important;
-        flex: none !important;
-        order: initial !important;
-    }
-
-    main > section#volunteer + section#merch {
-        margin-top: 0 !important;
-        clear: both !important;
+        max-width: 1200px;
     }
 }
+
+/* =========================================================
+   FALLBACK FOR A WRAPPER AROUND GET INVOLVED + MERCH
+   If both sections share a direct parent inside <main>,
+   force that wrapper into a single vertical column too.
+========================================================= */
+
+@media (min-width: 701px) {
+    main > *:has(> .involved):has(> .merch) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        gap: 0 !important;
+    }
+
+    main > *:has(> .involved):has(> .merch) > .involved,
+    main > *:has(> .involved):has(> .merch) > .merch {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 auto !important;
+        float: none !important;
+        clear: both !important;
+        grid-column: 1 / -1 !important;
+    }
+}
+
+
 

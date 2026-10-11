@@ -1,7 +1,12 @@
-﻿const SUPABASE_URL = process.env.SUPABASE_URL;
+import { createHmac } from "node:crypto";
+import { isIP } from "node:net";
+
+const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY;
 
 const MAX_BODY_BYTES = 10 * 1024;
+const RATE_LIMIT_MAX_REQUESTS = 20;
+const RATE_LIMIT_WINDOW_SECONDS = 15 * 60;
 
 function json(res, status, payload) {
   res.status(status).json(payload);
@@ -20,6 +25,47 @@ function isValidPhone(value) {
   return /^[0-9+()\-\s]{7,20}$/.test(value);
 }
 
+
+function getClientIp(req) {
+  const raw = req.headers["x-real-ip"];
+
+  if (typeof raw !== "string" || raw.length > 64) return null;
+
+  const candidate = raw.trim();
+  return candidate && isIP(candidate) ? candidate : null;
+}
+
+function hashRateLimitKey(clientIp) {
+  return createHmac("sha256", SUPABASE_SECRET_KEY)
+    .update("transformation-camp-registration:" + clientIp)
+    .digest("hex");
+}
+
+async function isRateLimited(clientIp) {
+  const response = await fetch(
+    SUPABASE_URL + "/rest/v1/rpc/check_registration_rate_limit",
+    {
+      method: "POST",
+      headers: {
+        apikey: SUPABASE_SECRET_KEY,
+        Authorization: "Bearer " + SUPABASE_SECRET_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        p_key_hash: hashRateLimitKey(clientIp),
+        p_max_requests: RATE_LIMIT_MAX_REQUESTS,
+        p_window_seconds: RATE_LIMIT_WINDOW_SECONDS
+      })
+    }
+  );
+
+  if (!response.ok) {
+    console.error("Registration rate limiter unavailable:", response.status);
+    throw new Error("Registration rate limiter unavailable");
+  }
+
+  return (await response.json()) === false;
+}
 function isValidOrigin(req) {
   const origin = req.headers.origin;
   const host = req.headers.host;
@@ -52,6 +98,28 @@ export default async function handler(req, res) {
 
   if (contentLength > MAX_BODY_BYTES) {
     return json(res, 413, { error: "Request is too large." });
+  }
+
+  const clientIp = getClientIp(req);
+
+  if (!clientIp) {
+    console.error("Registration request did not include a valid client IP.");
+    return json(res, 503, {
+      error: "Registration service is temporarily unavailable. Please try again."
+    });
+  }
+
+  try {
+    if (await isRateLimited(clientIp)) {
+      res.setHeader("Retry-After", String(RATE_LIMIT_WINDOW_SECONDS));
+      return json(res, 429, {
+        error: "Too many registration attempts. Please try again in 15 minutes."
+      });
+    }
+  } catch {
+    return json(res, 503, {
+      error: "Registration service is temporarily unavailable. Please try again."
+    });
   }
 
   let body = req.body;

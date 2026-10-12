@@ -34,10 +34,10 @@ form.addEventListener("submit",async event=>{
   if(password.value!==confirmPassword.value){message.textContent="The passwords do not match.";return;}
   submit.disabled=true;submit.textContent="Updating password…";
   try{
-    const response=await fetch("https://pyzhhaqanyojysquynwg.supabase.co/auth/v1/user",{
-      method:"PUT",
-      headers:{"apikey":window.SUPABASE_PUBLISHABLE_KEY||"", "Authorization":"Bearer "+accessToken,"Content-Type":"application/json"},
-      body:JSON.stringify({password:password.value})
+    const response=await fetch("/api/admin-auth",{
+      method:"POST",credentials:"same-origin",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"update-password",accessToken,password:password.value})
     });
     const data=await response.json().catch(()=>({}));
     if(!response.ok) throw new Error(data.msg||data.message||data.error_description||"Could not update the password. Request a new reset email and try again.");

@@ -1,21 +1,23 @@
 (() => {
   const menuButton = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
-  const setMenu = (open) => {
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-    mobileNav.classList.toggle('is-open', open);
-    mobileNav.inert = !open;
-    document.body.classList.toggle('menu-open', open);
-  };
-  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
-  mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-      setMenu(false);
-      menuButton.focus();
-    }
-  });
+  if (menuButton && mobileNav) {
+    const setMenu = (open) => {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      mobileNav.classList.toggle('is-open', open);
+      mobileNav.inert = !open;
+      document.body.classList.toggle('menu-open', open);
+    };
+    menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+    mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        menuButton.focus();
+      }
+    });
+  }
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = document.querySelectorAll('.reveal');
@@ -34,26 +36,29 @@
   }
 
   const track = document.querySelector('.story-track');
-  const cards = [...track.querySelectorAll('.story-card')];
-  const progress = document.querySelector('.story-progress span');
-  let storyIndex = 0;
-  const visibleCount = () => window.matchMedia('(max-width: 640px)').matches ? 1 : window.matchMedia('(max-width: 900px)').matches ? 2 : 3;
-  const updateStories = () => {
-    const maxIndex = Math.max(0, cards.length - visibleCount());
-    storyIndex = Math.min(storyIndex, maxIndex);
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    track.style.transform = `translateX(-${storyIndex * (cardWidth + gap)}px)`;
-    progress.style.width = `${100 / (maxIndex + 1)}%`;
-    progress.style.transform = `translateX(${storyIndex * 100}%)`;
-  };
-  document.querySelectorAll('[data-story]').forEach((button) => button.addEventListener('click', () => {
-    const maxIndex = Math.max(0, cards.length - visibleCount());
-    storyIndex = button.dataset.story === 'next' ? Math.min(maxIndex, storyIndex + 1) : Math.max(0, storyIndex - 1);
+  if (track) {
+    const cards = [...track.querySelectorAll('.story-card')];
+    const progress = document.querySelector('.story-progress span');
+    let storyIndex = 0;
+    const visibleCount = () => window.matchMedia('(max-width: 640px)').matches ? 1 : window.matchMedia('(max-width: 900px)').matches ? 2 : 3;
+    const updateStories = () => {
+      if (!cards.length || !progress) return;
+      const maxIndex = Math.max(0, cards.length - visibleCount());
+      storyIndex = Math.min(storyIndex, maxIndex);
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      track.style.transform = `translateX(-${storyIndex * (cardWidth + gap)}px)`;
+      progress.style.width = `${100 / (maxIndex + 1)}%`;
+      progress.style.transform = `translateX(${storyIndex * 100}%)`;
+    };
+    document.querySelectorAll('[data-story]').forEach((button) => button.addEventListener('click', () => {
+      const maxIndex = Math.max(0, cards.length - visibleCount());
+      storyIndex = button.dataset.story === 'next' ? Math.min(maxIndex, storyIndex + 1) : Math.max(0, storyIndex - 1);
+      updateStories();
+    }));
+    window.addEventListener('resize', updateStories, { passive: true });
     updateStories();
-  }));
-  window.addEventListener('resize', updateStories, { passive: true });
-  updateStories();
+  }
 
   document.querySelectorAll('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
     const original = 'Copy account number';

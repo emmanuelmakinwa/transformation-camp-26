@@ -411,3 +411,30 @@ main,section,header,footer,nav,article,form,fieldset{min-width:0}
 .involved-action>span:last-child,.giving-action span,.merch-cta-arrow{border-radius:8px!important}
 .merch-cta{border-radius:12px}
 @media(max-width:760px){.minister-avatar{width:108px;height:108px;border-radius:18px}.minister-avatar svg{width:62px;height:62px}.minister-art-ring{width:150px;height:150px;border-radius:20px}}
+
+/* Mobile finishing pass: product visibility, pill-corner CTAs, and compact footer */
+@media(max-width:760px){
+  .hero-actions .button,.register-action .button,.ministers-promo .button,.accom-copy .button,.closing .button,.mobile-nav .button{border-radius:18px}
+  a.button[href="register.html"],a.button[href="ministers.html"],.accom-copy a.button{border-radius:18px}
+  .merch-grid{gap:1.2rem .8rem}
+  .merch-visual{height:auto;aspect-ratio:4/5;border-radius:14px;background:#f8f7f1;padding:.45rem}
+  .merch-visual img{object-fit:contain;border-radius:10px}
+  .footer{padding-top:2.75rem;padding-bottom:1.5rem}
+  .footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem .8rem;padding-bottom:1.5rem}
+  .footer-brand{grid-column:1/-1;padding-bottom:1.15rem;border-bottom:1px solid var(--line)}
+  .footer-brand p{max-width:38ch;margin:.65rem 0}
+  .footer-brand .text-link{display:inline-flex;align-items:center;gap:.5rem}
+  .footer-column{min-width:0;gap:.45rem;padding:.9rem;border:1px solid var(--line);border-radius:16px;background:#fff8}
+  .footer-column .eyebrow{margin-bottom:.2rem}
+  .footer-column a{font-size:.76rem;padding:.28rem 0;line-height:1.4}
+  .footer-column a svg{width:16px;height:16px}
+  .footer-bottom{padding-top:1rem;align-items:flex-start;font-size:.68rem;line-height:1.5}
+  .footer-bottom a{white-space:nowrap}
+}
+@media(max-width:380px){
+  .merch-grid{grid-template-columns:minmax(0,1fr)}
+  .merch-visual{max-height:420px;aspect-ratio:4/4.6;padding:.65rem}
+  .footer-column{padding:.75rem .65rem}
+  .footer-column a{font-size:.7rem;gap:.4rem}
+  .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto}
+}

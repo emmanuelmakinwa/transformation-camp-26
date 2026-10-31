@@ -1,8 +1,8 @@
 const ministers = Array.from({ length: 4 }, (_, index) => ({
   number: String(index + 1).padStart(2, '0'),
-  name: index === 0 ? 'Emmanuel Makinwa' : index === 2 ? 'Precious Ebine' : 'Minister name',
+  name: index === 0 ? 'Emmanuel Makinwa' : index === 2 ? 'Precious Ebine' : index === 3 ? 'Emmanuel Mujoh' : 'Minister name',
   bio: 'Bio........',
-  image: index === 0 ? 'assets/minister-emmanuel-makinwa.jpg' : index === 2 ? 'assets/minister-precious-ebine.jpg' : null,
+  image: index === 0 ? 'assets/minister-emmanuel-makinwa.jpg' : index === 2 ? 'assets/minister-precious-ebine.jpg' : index === 3 ? 'assets/minister-emmanuel-mujoh.jpg' : null,
 }));
 const list = document.querySelector('#minister-list');
 

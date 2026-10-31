@@ -445,3 +445,98 @@ main,section,header,footer,nav,article,form,fieldset{min-width:0}
   .mobile-nav>a:not(.button){min-height:44px;padding:.6rem .75rem;font-size:clamp(1rem,4.2vw,1.125rem);font-weight:600;line-height:1.35;letter-spacing:-.015em}
   .mobile-nav .button{font-size:.9rem}
 }
+
+/* Transformation Camp 26 palette refresh */
+:root{
+  --ink:#20231A;
+  --paper:#F2F7F5;
+  --white:#FBFDFC;
+  --lime:#E6EE45;
+  --muted:#66716B;
+  --line:rgba(32,35,26,.14);
+  --sky:#C7E5E9;
+  --sky-soft:#E5F0F0;
+  --sand:#C6B38E;
+}
+body{background:var(--paper);color:var(--ink)}
+a:focus-visible,button:focus-visible{outline-color:#87921A}
+.site-header{background:rgba(242,247,245,.95);border-bottom-color:rgba(32,35,26,.1)}
+.button-lime{background:var(--lime);color:var(--ink);box-shadow:0 8px 22px rgba(32,35,26,.12)}
+.button-lime:hover{background:#EEF675}
+.button-dark{background:var(--ink);color:var(--white)}
+.button-dark:hover{background:#353B2D}
+.hero{background:var(--ink)}
+.hero-shade{background:linear-gradient(90deg,rgba(32,35,26,.96),rgba(32,35,26,.86) 58%,rgba(32,35,26,.22)),linear-gradient(0deg,rgba(32,35,26,.5),transparent 32%)}
+.hero-copy{color:rgba(251,253,252,.92)}
+.live-dot{box-shadow:0 0 0 4px rgba(230,238,69,.22)}
+.section-kicker .number{color:#737F76}
+.mandate:not(.mandate-lime){background:var(--sky-soft)}
+.mandate-lime{background:var(--lime)}
+.mandate p{color:#48534B}
+.experience{background:var(--ink);color:var(--paper)}
+.experience .number,.card-number{color:#B7C2BA}
+.card-icon{color:var(--lime)}
+.card-rule:after{background:var(--lime)}
+.story-card{background:#FBFDFC;border:1px solid rgba(32,35,26,.08);border-radius:18px}
+.story-card:nth-child(even){background:var(--sky-soft)}
+.quote-mark{color:#818C42}
+.story-person>span{background:var(--ink);color:var(--lime)}
+.story-progress{background:#D7E2DE}.story-progress span{background:#87921A}
+.circle-link:hover,.round-control:hover{background:var(--lime)}
+.accom-panel{background:var(--ink);color:var(--paper);border-radius:24px}
+.accom-art{background:var(--sky)}
+.register{background:var(--sky-soft)}
+.register-action{background:var(--white);border:1px solid rgba(32,35,26,.08)}
+.register-note>span{color:#75801D}
+.involved-card{background:#FBFDFC;border:1px solid rgba(32,35,26,.08);border-radius:20px}
+.involved-card:nth-child(2){background:var(--sky-soft)}
+.involved-card:nth-child(3){background:#F1EEE5}
+.involved-icon{background:var(--sky);color:var(--ink)}
+.involved-action,.giving-action{border-color:rgba(32,35,26,.14);background:#FBFDFC;color:var(--ink)}
+.involved-action>span,.giving-action span{background:var(--sky-soft)}
+.involved-action:hover,.giving-action:hover{background:#F0F6DF;border-color:#BBC46A}
+.giving-action:first-child{background:#F2F5D0;border-color:#C8D253}
+.merch{background:#E8F0EC}
+.merch-visual{background:var(--sky-soft)}
+.merch-enquiry{border-color:rgba(32,35,26,.14);background:#FBFDFC}
+.merch-cta{background:#344C3B;color:#fff}
+.merch-cta:hover{background:#263A2D}
+.closing{background:var(--ink);color:var(--paper)}
+.closing-with-flyer{background-image:linear-gradient(90deg,rgba(32,35,26,.88),rgba(32,35,26,.64)),url('assets/camp-hero.jpeg')}
+.closing-star{color:rgba(230,238,69,.1)}
+.footer,.register-footer{background:#E4EFF0}
+.footer-brand p{color:#56645B}
+.footer-column a:hover{background:rgba(255,255,255,.65)}
+.footer-bottom{border-color:rgba(32,35,26,.16);color:#5E6B63}
+.footer-bottom a,.register-footer a{color:var(--ink)}
+.register-page{background:var(--paper)}
+.registration-card{background:var(--white);border-color:rgba(32,35,26,.12);border-radius:22px;box-shadow:0 20px 55px rgba(32,35,26,.07)}
+.form-field input:not([type=radio]),.form-field select{border-color:#C8D3CE;background:#fff;color:var(--ink);border-radius:10px}
+.form-field input:focus,.form-field select:focus{outline-color:#87921A}
+.radio-option input{accent-color:#73801A}
+.registration-message-error{background:#F8E9E2;color:#752F20}
+.registration-message-success{background:#EEF2CC;color:#353A20}
+.official-form-link{color:#3F5B49}
+.schedule-teaser,.schedule-locked{background:var(--sky-soft)}
+.schedule-lock{background:var(--white);border-color:rgba(32,35,26,.14);border-radius:16px}
+.schedule-status{border-radius:999px;background:#FBFDFC}
+.schedule-session{border-color:rgba(32,35,26,.18)}
+.minister-hero{background:var(--ink);color:var(--paper)}
+.minister-hero-content>.eyebrow,.minister-hero-content .eyebrow{color:var(--lime)}
+.minister-hero-note{border-left-color:rgba(242,247,245,.3)}
+.minister-hero-note p{color:#D4DED8}
+.minister-hero-mark{background:rgba(199,229,233,.12);color:var(--lime)}
+.minister-profile,.minister-mystery-card{background:var(--white);border-color:rgba(32,35,26,.12)}
+.minister-profile-art{background:radial-gradient(ellipse at 50% 105%,#9DB8A9 0,transparent 52%),linear-gradient(145deg,#E2F0F0,#C7E5E9 62%,#B7CDBF)}
+.minister-profile:nth-child(2) .minister-profile-art{background:radial-gradient(ellipse at 50% 105%,#A9C3B5 0,transparent 52%),linear-gradient(145deg,#E8F2F1,#CFE6E4 62%,#BDD5CB)}
+.minister-profile:nth-child(3) .minister-profile-art{background:radial-gradient(ellipse at 50% 105%,#C6B38E 0,transparent 52%),linear-gradient(145deg,#F2F0E8,#E6E2D3 62%,#D2C5A7)}
+.minister-profile:nth-child(4) .minister-profile-art{background:radial-gradient(ellipse at 50% 105%,#A9C3B5 0,transparent 52%),linear-gradient(145deg,#E6F0ED,#C7E5E9 62%,#B6CCBE)}
+.minister-info .eyebrow{color:#56694D}
+.minister-focus{background:var(--sky-soft);color:#495A4D}
+.minister-roster-heading{color:var(--ink)}
+.minister-count{color:#66716B}
+.people-page{background:var(--paper)}
+.mystery-ministers,.minister-card{background:var(--sky-soft)}
+.mystery-art{background:radial-gradient(ellipse at 50% 110%,#829984 0,transparent 48%),linear-gradient(145deg,#D7E9E7,#AFC6B8 65%,#788776)}
+.minister-card img{border-radius:14px}
+::selection{background:var(--lime);color:var(--ink)}

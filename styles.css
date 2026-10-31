@@ -543,6 +543,9 @@ a:focus-visible,button:focus-visible{outline-color:#87921A}
 .minister-profile-1 .minister-profile-art{min-height:0;display:block;overflow:hidden;background:var(--sky)}
 .minister-profile-1 .minister-profile-art::after{display:none}
 .minister-profile-1 .minister-profile-art img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;object-position:center}
+.minister-profile-3 .minister-profile-art{min-height:0;display:block;overflow:hidden;background:var(--sky)}
+.minister-profile-3 .minister-profile-art::after{display:none}
+.minister-profile-3 .minister-profile-art img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;object-position:center}
 
 /* Main event flyer feature */
 .flyer-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);align-items:center;gap:clamp(2rem,7vw,7rem);padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem);background:linear-gradient(130deg,#E4EFF0 0%,var(--paper) 58%,#E9F0E7 100%)}

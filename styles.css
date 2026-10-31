@@ -438,3 +438,10 @@ main,section,header,footer,nav,article,form,fieldset{min-width:0}
   .footer-column a{font-size:.7rem;gap:.4rem}
   .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto}
 }
+
+/* Keep the expanded mobile menu calm, readable, and sized like standard navigation. */
+@media(max-width:900px){
+  .mobile-nav{justify-content:flex-start;gap:.2rem}
+  .mobile-nav>a:not(.button){min-height:44px;padding:.6rem .75rem;font-size:clamp(1rem,4.2vw,1.125rem);font-weight:600;line-height:1.35;letter-spacing:-.015em}
+  .mobile-nav .button{font-size:.9rem}
+}

@@ -620,6 +620,52 @@ a:focus-visible,button:focus-visible{outline-color:#87921A}
 @media(max-width:380px){.program-hero-copy h1{font-size:clamp(3rem,12vw,3.7rem)}.program-eyebrow{font-size:.58rem;letter-spacing:.1em}.program-day-strip article{padding:.8rem .55rem}.program-day-strip article strong{font-size:1.45rem}.program-card-date{font-size:4.4rem}.program-card-date-range{font-size:1rem}.program-hero-footer{font-size:.5rem}}
 @media(prefers-reduced-motion:reduce){.program-back{transition:none}}
 
+/* Confirmed day-by-day itinerary and official poster */
+.program-section-heading>p{max-width:42ch}
+.program-content-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);align-items:start;gap:clamp(1.25rem,3vw,2rem)}
+.program-itinerary{min-width:0}
+.program-confirmed-label{display:flex;align-items:center;gap:.55rem;margin:0 0 .9rem;color:#465A49;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.program-confirmed-label>span{width:8px;height:8px;border-radius:50%;background:#718B58;box-shadow:0 0 0 4px rgba(113,139,88,.15)}
+.program-day-card{overflow:hidden;margin-bottom:1rem;border:1px solid rgba(32,35,26,.1);border-radius:18px;background:var(--white);box-shadow:0 12px 36px rgba(32,35,26,.04)}
+.program-day-card-heading{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.25rem;background:linear-gradient(105deg,#E4EFF0,#F8FAF5);border-bottom:1px solid rgba(32,35,26,.08)}
+.program-day-number{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:13px;background:var(--ink);color:var(--lime);font-size:.85rem;font-weight:800;font-variant-numeric:tabular-nums}
+.program-day-label{display:block;color:#657469;font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.program-day-card-heading h3{margin:.18rem 0 0;font-size:1.05rem;line-height:1.3;letter-spacing:-.025em}
+.program-table-wrap{width:100%;overflow-x:auto}
+.program-table{width:100%;border-collapse:collapse;text-align:left}
+.program-table thead{background:#F6F8F5}
+.program-table th,.program-table td{padding:.9rem 1.15rem;vertical-align:middle}
+.program-table thead th{color:#66736A;font-size:.59rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.program-table thead th:last-child{width:42%;text-align:right}
+.program-table tbody tr+tr{border-top:1px solid rgba(32,35,26,.08)}
+.program-table tbody th{font-size:.82rem;font-weight:700;line-height:1.45}
+.program-table tbody td{text-align:right;color:#3C5241;font-size:.78rem;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.program-overnight-badge{display:inline-block;margin-left:.4rem;padding:.22rem .4rem;border-radius:999px;background:#F2F4D9;color:#58633D;font-size:.52rem;font-weight:800;letter-spacing:.03em;white-space:nowrap}
+.program-overnight-note{margin:.85rem .2rem 2rem;color:#66716B;font-size:.72rem;line-height:1.65}
+.program-logistics{padding:1.25rem;border:1px solid rgba(32,35,26,.1);border-radius:18px;background:#E5F0F0}
+.program-logistics-heading .eyebrow{color:#607064}
+.program-logistics-heading h3{margin:.25rem 0 1rem;font-size:1.3rem;line-height:1.2;letter-spacing:-.04em}
+.program-logistics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.program-logistics-grid article{display:flex;align-items:center;gap:.65rem;min-width:0;padding:.75rem .65rem;border:1px solid rgba(32,35,26,.08);border-radius:13px;background:#FBFDFC}
+.program-logistics-icon{display:grid;place-items:center;width:32px;height:32px;flex:none;border-radius:10px;background:#E5F0F0;color:#405A47}
+.program-logistics-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.program-logistics-grid article div{min-width:0}
+.program-logistics-grid article div span,.program-logistics-grid article div strong{display:block}
+.program-logistics-grid article div span{color:#66716B;font-size:.55rem;line-height:1.25}
+.program-logistics-grid article div strong{margin-top:.15rem;color:#34483A;font-size:.78rem}
+.program-flyer-aside{min-width:0}
+.program-flyer-card{position:sticky;top:96px;overflow:hidden;margin:0;padding:.8rem;border:1px solid rgba(32,35,26,.1);border-radius:20px;background:var(--white);box-shadow:0 16px 48px rgba(32,35,26,.09)}
+.program-flyer-card figcaption{display:flex;flex-direction:column;gap:.3rem;padding:.5rem .4rem .8rem}
+.program-flyer-card figcaption .eyebrow{color:#66746A}
+.program-flyer-card figcaption strong{font-size:.95rem;letter-spacing:-.02em}
+.program-flyer-image{display:block;overflow:hidden;border-radius:12px;background:#E5F0F0}
+.program-flyer-image img{display:block;width:100%;height:auto;object-fit:contain}
+.program-flyer-download{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-top:.7rem;padding:.75rem .85rem;border-radius:12px;background:var(--ink);color:var(--white);font-size:.7rem;font-weight:800;transition:background .2s ease,transform .2s ease}
+.program-flyer-download:hover{background:#354B3A;transform:translateY(-1px)}
+@media(max-width:900px){.program-content-grid{grid-template-columns:minmax(0,1fr) minmax(250px,.62fr);gap:1rem}.program-logistics-grid{grid-template-columns:minmax(0,1fr)}.program-logistics-grid article{padding:.65rem}}
+@media(max-width:760px){.program-content-grid{grid-template-columns:minmax(0,1fr);gap:1.25rem}.program-flyer-aside{grid-row:2}.program-flyer-card{position:static;width:min(100%,440px);margin-inline:auto}.program-logistics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.program-logistics-grid article{display:grid;justify-items:start;gap:.45rem;padding:.65rem .55rem}.program-logistics-grid article div span{font-size:.53rem}.program-table th,.program-table td{padding:.8rem .75rem}.program-table thead th:last-child{width:47%}.program-table tbody th{font-size:.78rem}.program-table tbody td{font-size:.72rem}.program-overnight-badge{display:table;margin:.3rem 0 0 auto}}
+@media(max-width:380px){.program-day-card-heading{padding:.9rem}.program-table th,.program-table td{padding:.72rem .55rem}.program-table tbody th{font-size:.73rem}.program-table tbody td{font-size:.67rem}.program-overnight-badge{font-size:.48rem}.program-logistics{padding:.9rem}.program-logistics-grid{gap:.4rem}.program-logistics-grid article{padding:.55rem .4rem}.program-logistics-icon{width:28px;height:28px}.program-logistics-grid article div span{font-size:.49rem}.program-logistics-grid article div strong{font-size:.72rem}}
+
 /* Main event flyer feature */
 .flyer-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);align-items:center;gap:clamp(2rem,7vw,7rem);padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem);background:linear-gradient(130deg,#E4EFF0 0%,var(--paper) 58%,#E9F0E7 100%)}
 .flyer-feature-copy{max-width:640px}

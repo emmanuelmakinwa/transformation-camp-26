@@ -451,7 +451,7 @@ main,section,header,footer,nav,article,form,fieldset{min-width:0}
   --ink:#20231A;
   --paper:#F2F7F5;
   --white:#FBFDFC;
-  --lime:#E6EE45;
+  --lime:#F0F36B;
   --muted:#66716B;
   --line:rgba(32,35,26,.14);
   --sky:#C7E5E9;
@@ -462,13 +462,13 @@ body{background:var(--paper);color:var(--ink)}
 a:focus-visible,button:focus-visible{outline-color:#87921A}
 .site-header{background:rgba(242,247,245,.95);border-bottom-color:rgba(32,35,26,.1)}
 .button-lime{background:var(--lime);color:var(--ink);box-shadow:0 8px 22px rgba(32,35,26,.12)}
-.button-lime:hover{background:#EEF675}
+.button-lime:hover{background:#F6F79A}
 .button-dark{background:var(--ink);color:var(--white)}
 .button-dark:hover{background:#353B2D}
 .hero{background:var(--ink)}
 .hero-shade{background:linear-gradient(90deg,rgba(32,35,26,.96),rgba(32,35,26,.86) 58%,rgba(32,35,26,.22)),linear-gradient(0deg,rgba(32,35,26,.5),transparent 32%)}
 .hero-copy{color:rgba(251,253,252,.92)}
-.live-dot{box-shadow:0 0 0 4px rgba(230,238,69,.22)}
+.live-dot{box-shadow:0 0 0 4px rgba(240,243,107,.25)}
 .section-kicker .number{color:#737F76}
 .mandate:not(.mandate-lime){background:var(--sky-soft)}
 .mandate-lime{background:var(--lime)}
@@ -503,7 +503,7 @@ a:focus-visible,button:focus-visible{outline-color:#87921A}
 .merch-cta:hover{background:#263A2D}
 .closing{background:var(--ink);color:var(--paper)}
 .closing-with-flyer{background-image:linear-gradient(90deg,rgba(32,35,26,.88),rgba(32,35,26,.64)),url('assets/camp-hero.jpeg')}
-.closing-star{color:rgba(230,238,69,.1)}
+.closing-star{color:rgba(240,243,107,.1)}
 .footer,.register-footer{background:#E4EFF0}
 .footer-brand p{color:#56645B}
 .footer-column a:hover{background:rgba(255,255,255,.65)}

@@ -1,7 +1,11 @@
 const ministers = Array.from({ length: 4 }, (_, index) => ({
   number: String(index + 1).padStart(2, '0'),
   name: index === 0 ? 'Pst. Emmanuel Makinwa' : index === 1 ? 'Pst. Jedidiah Olawale' : index === 2 ? 'Mins. Precious Ebine' : index === 3 ? 'Mins. Emmanuel Mujoh' : 'Minister name',
-  bio: index === 2
+  bio: index === 1
+    ? `<p>Pastor Jedidiah Olawale is a pastor, teacher, and music minister based in Lagos, Nigeria.</p>
+       <p>He is the founder of Spirit Hub, an online interdenominational fellowship where he gathers young people daily for prayer and the study of God's Word.</p>
+       <p>He is also a music minister, dedicated to drawing God's people into deeper levels of intimate fellowship with God.</p>`
+    : index === 2
     ? `<p>Mins. Precious Ebine is a lover of God, a worshipper, and a songwriter.</p>
        <p>With a mission to raise people who will fulfil their God-given potential to the fullest, she carries a mantra that speaks of the faithfulness of God: <em>God Can Be Trusted.</em></p>
        <p>She has also released two songs, <em>Trust</em> and <em>He Lives in Me</em>, which have blessed many lives and reassured listeners of God's unfailing faithfulness.</p>

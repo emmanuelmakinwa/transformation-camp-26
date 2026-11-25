@@ -1,63 +1,63 @@
-﻿{
-    "headers":  [
-                    {
-                        "source":  "/(.*)",
-                        "headers":  [
-                                        {
-                                            "key":  "Content-Security-Policy",
-                                            "value":  "default-src \u0027self\u0027; script-src \u0027self\u0027; style-src \u0027self\u0027; img-src \u0027self\u0027; font-src \u0027self\u0027; connect-src \u0027self\u0027; object-src \u0027none\u0027; base-uri \u0027none\u0027; form-action \u0027self\u0027; frame-ancestors \u0027none\u0027; upgrade-insecure-requests; script-src-attr \u0027none\u0027; style-src-attr \u0027none\u0027"
-                                        },
-                                        {
-                                            "key":  "X-Content-Type-Options",
-                                            "value":  "nosniff"
-                                        },
-                                        {
-                                            "key":  "Referrer-Policy",
-                                            "value":  "strict-origin-when-cross-origin"
-                                        },
-                                        {
-                                            "key":  "X-Frame-Options",
-                                            "value":  "DENY"
-                                        },
-                                        {
-                                            "key":  "Permissions-Policy",
-                                            "value":  "accelerometer=(), camera=(), geolocation=(), microphone=(), payment=(), usb=()"
-                                        },
-                                        {
-                                            "key":  "Cross-Origin-Opener-Policy",
-                                            "value":  "same-origin"
-                                        },
-                                        {
-                                            "key":  "Cross-Origin-Resource-Policy",
-                                            "value":  "same-origin"
-                                        },
-                                        {
-                                            "key":  "Strict-Transport-Security",
-                                            "value":  "max-age=31536000"
-                                        }
-                                    ]
-                    }
-                ],
-    "rewrites":  [
-                     {
-                         "source":  "/admin/login",
-                         "destination":  "/admin/login.html"
-                     },
-                     {
-                         "source":  "/admin",
-                         "destination":  "/admin/index.html"
-                     },
-                     {
-                         "source":  "/reset-password",
-                         "destination":  "/reset-password.html"
-                     },
-                     {
-                         "destination":  "/pastors-ministers.html",
-                         "source":  "/pastors-ministers"
-                     },
-                     {
-                         "destination":  "/admin/ministers.html",
-                         "source":  "/admin/ministers"
-                     }
-                 ]
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests; script-src-attr 'none'; style-src-attr 'none'"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/admin/login",
+      "destination": "/admin/login.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/reset-password",
+      "destination": "/reset-password.html"
+    },
+    {
+      "source": "/pastors-ministers",
+      "destination": "/pastors-ministers.html"
+    },
+    {
+      "source": "/admin/ministers",
+      "destination": "/admin/ministers.html"
+    }
+  ]
 }

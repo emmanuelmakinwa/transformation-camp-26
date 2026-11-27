@@ -1,18 +1,79 @@
-/* Focused registration page refinements */
-.pastors-hero-copy{max-width:510px;color:#ffffffd9;font-size:.95rem;line-height:1.75}
-.pastors-hero-copy p{margin:0}
-.pastors-hero-copy p+p{margin-top:.85rem}
+/* Pastors & Ministers registration page
+   Page-specific layout layer. Shared brand tokens and navigation remain in styles.css. */
 
-/* Keep every minister and all flyer copy visible at the source aspect ratio. */
-.pastors-hospitality-art{width:min(100%,520px);justify-self:center;margin:0;padding:.55rem;border:1px solid #ffffff30;background:#fff;box-shadow:0 22px 60px #0003}
+.pastors-registration-site{background:var(--paper);color:var(--ink)}
+.pastors-page{width:100%;flex:1}
+.pastors-hero{position:relative;isolation:isolate;display:flex;align-items:stretch;min-height:min(790px,calc(100svh - 82px));overflow:hidden;background:#20221b;color:#f7f6ef;padding-top:clamp(2rem,4vw,3.5rem);padding-bottom:clamp(3rem,5vw,4.5rem)}
+.pastors-hero-art,.pastors-hero-shade{position:absolute;inset:0;z-index:-1}
+.pastors-hero-art{background-image:url('assets/camp-hero.jpeg');background-size:cover;background-position:center 42%;background-repeat:no-repeat;transform:scale(1.015)}
+.pastors-hero-shade{background:linear-gradient(90deg,rgba(15,17,13,.94) 0%,rgba(15,17,13,.82) 48%,rgba(15,17,13,.3) 100%),linear-gradient(0deg,rgba(15,17,13,.72),transparent 55%)}
+.pastors-hero-content{width:min(1320px,100%);margin:0 auto;display:flex;flex-direction:column;justify-content:flex-start}
+.pastors-back-link{display:inline-flex;width:max-content;margin-bottom:clamp(2.2rem,5vw,4.5rem);color:#e1e1d6;font-size:.78rem;font-weight:700}
+.pastors-back-link:hover{color:#fff}
+.pastors-hero-content>.eyebrow{color:var(--lime)}
+.pastors-hero h1{max-width:950px;margin:1rem 0 2.2rem;font-size:clamp(3.5rem,8.5vw,8rem);font-weight:800;line-height:.9;letter-spacing:-.085em;text-transform:uppercase}
+.pastors-hero h1 em{font-family:var(--serif);font-weight:400;letter-spacing:-.075em;text-transform:none}
+.pastors-hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem;margin-top:auto}
+.pastors-hero-copy{max-width:560px;color:#ffffffdf;font-size:.95rem;line-height:1.8}
+.pastors-hero-copy p{margin:0}
+.pastors-hero-copy p+p{margin-top:.9rem}
+.pastors-hero-actions{flex:none}
+.pastors-hero-actions .button{min-width:190px}
+.pastors-hero-index{position:absolute;right:var(--gutter);bottom:2rem;color:#ffffffa8;font-size:.65rem;font-weight:800;letter-spacing:.18em}
+
+.pastors-hospitality{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);align-items:center;gap:clamp(2rem,7vw,7rem);padding-top:clamp(5rem,9vw,9rem);padding-bottom:clamp(5rem,9vw,9rem)}
+.pastors-hospitality-copy{max-width:590px}
+.pastors-section-label{display:flex;align-items:center;gap:.85rem;margin-bottom:2.2rem;color:var(--muted);font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.pastors-section-label span:first-child{color:var(--ink);font-variant-numeric:tabular-nums}
+.pastors-section-label span:first-child:after{content:"";display:inline-block;width:28px;height:1px;margin:0 .2rem .2rem .65rem;background:currentColor}
+.pastors-hospitality-copy>.eyebrow{color:#747a32}
+.pastors-hospitality-copy .display{margin:1rem 0 1.5rem;font-size:clamp(3.6rem,7.5vw,7rem)}
+.pastors-hospitality-copy>p{max-width:54ch;color:var(--muted);font-size:.9rem;line-height:1.85}
+.pastors-hospitality-copy .pastors-note{padding-left:1rem;border-left:2px solid var(--lime);font-size:.78rem}
+.pastors-hospitality-copy>.button{margin-top:1rem}
+.pastors-hospitality-art{width:min(100%,520px);justify-self:center;margin:0;padding:.55rem;border:1px solid #deded2;background:#fff;box-shadow:0 22px 60px #00000018}
 .pastors-hospitality-art img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
 .pastors-hospitality-art figcaption{padding:.8rem .5rem .25rem;color:#505247;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;text-align:center}
 
-/* Multi-select session cards with clear checked and keyboard focus states. */
-.pastors-session-choice{grid-column:1/-1}
-.pastors-session-choice>legend>small{display:block;margin-top:.35rem;color:#77776b;font-size:.65rem;font-weight:500}
+.pastors-registration{padding-top:clamp(4.5rem,8vw,8rem);padding-bottom:clamp(5rem,9vw,9rem);background:#e9e8de}
+.pastors-registration>.pastors-section-label,.pastors-form-heading,.pastors-form-layout{width:min(1320px,100%);margin-left:auto;margin-right:auto}
+.pastors-form-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.55fr);align-items:end;gap:3rem;margin-bottom:3.5rem}
+.pastors-form-heading .eyebrow{color:#747a32}
+.pastors-form-heading .display{margin-top:.9rem;font-size:clamp(3.4rem,7vw,6.7rem)}
+.pastors-form-heading>p{max-width:390px;margin:0 0 .5rem;color:var(--muted);font-size:.88rem;line-height:1.8}
+.pastors-form-layout{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);align-items:start;gap:clamp(1.2rem,4vw,3.5rem)}
+.pastors-form-aside{position:sticky;top:110px;padding:clamp(1.5rem,3vw,2.5rem);background:#20221b;color:#f7f6ef}
+.pastors-form-aside-mark{display:flex;align-items:baseline;gap:.25rem;margin-bottom:2.8rem;font-size:2.4rem;font-weight:800;letter-spacing:-.09em}
+.pastors-form-aside-mark span{color:var(--lime);font-family:var(--serif);font-size:1.35rem;font-weight:400}
+.pastors-form-aside>.eyebrow{color:var(--lime)}
+.pastors-form-aside h3{margin:.8rem 0;font-size:1.35rem;line-height:1.2;letter-spacing:-.04em}
+.pastors-form-aside p{color:#d2d2c6;font-size:.78rem;line-height:1.8}
+.pastors-aside-rule{height:1px;margin:1.8rem 0;background:#ffffff30}
+.pastors-form-aside p:last-child{margin-bottom:0}
+.pastors-form{min-width:0;padding:clamp(1.25rem,3.5vw,3rem);border:1px solid #deded2;background:var(--white);box-shadow:0 12px 35px #17170f0a}
+.pastors-form-section{display:grid;grid-template-columns:42px minmax(0,1fr);gap:1rem;align-items:start;padding:0 0 1.25rem;margin:0 0 1.5rem;border-bottom:1px solid var(--line)}
+.pastors-form-section:not(:first-child){margin-top:2.6rem}
+.pastors-form-step{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eff0dc;color:#656b2c;font-size:.68rem;font-weight:800;font-variant-numeric:tabular-nums}
+.pastors-form-section h3{margin:0;font-size:1.15rem;line-height:1.3;letter-spacing:-.035em}
+.pastors-form-section p{margin:.3rem 0 0;color:var(--muted);font-size:.78rem}
+.pastors-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem 1rem}
+.pastors-field{display:flex;flex-direction:column;gap:.45rem;min-width:0;margin:0}
+.pastors-field>label,.pastors-field>legend{color:#393a30;font-size:.68rem;font-weight:800;letter-spacing:.055em}
+.pastors-field label span:not(.optional),.pastors-field legend>span{color:#8b742b}
+.pastors-field .optional{margin-left:.35rem;color:#858579;font-size:.62rem;font-weight:600;letter-spacing:0;text-transform:none}
+.pastors-field input:not([type=checkbox]):not([type=radio]),.pastors-field select,.pastors-field textarea{display:block;width:100%;min-width:0;min-height:49px;padding:.75rem .85rem;border:1px solid #d0d0c4;border-radius:0;background:#fff;color:var(--ink);font:inherit;font-size:.84rem;line-height:1.4;box-shadow:none}
+.pastors-field textarea{min-height:112px;resize:vertical}
+.pastors-field input:focus,.pastors-field select:focus,.pastors-field textarea:focus{outline:2px solid #858b42;outline-offset:2px;border-color:#858b42}
+.pastors-field input::placeholder,.pastors-field textarea::placeholder{color:#99998e}
+.pastors-field-choice{grid-column:1/-1;min-width:0;padding:0;border:0}
+.pastors-field-choice legend{width:100%;margin-bottom:.8rem;padding:0}
+.pastors-field-full{grid-column:1/-1}
+.field-hint{color:var(--muted);font-size:.67rem;line-height:1.5}
+.field-error{min-height:0;color:#a33b2d;font-size:.68rem;line-height:1.45}
+.field-error:empty{display:none}
+.pastors-session-choice>legend>small{display:block;margin-top:.35rem;color:#77776b;font-size:.65rem;font-weight:500;letter-spacing:0;text-transform:none}
 .pastors-session-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
-.pastors-session-option{display:flex;align-items:flex-start;gap:.7rem;min-width:0;padding:.8rem;border:1px solid #dedfd5;background:#fff;cursor:pointer;transition:border-color .16s,background .16s,box-shadow .16s}
+.pastors-session-option{display:flex;align-items:flex-start;gap:.7rem;min-width:0;padding:.85rem;border:1px solid #dedfd5;background:#fff;cursor:pointer;transition:border-color .16s,background .16s,box-shadow .16s}
 .pastors-session-option:has(input:checked){border-color:#78803b;background:#f4f5e8;box-shadow:inset 0 0 0 1px #78803b}
 .pastors-session-option:focus-within{outline:2px solid #7a8140;outline-offset:2px}
 .pastors-session-option input{width:18px;height:18px;min-height:0;flex:0 0 18px;margin:.1rem 0 0;accent-color:#747a32}
@@ -20,11 +81,65 @@
 .pastors-session-option strong{font-size:.72rem;color:#38392f}
 .pastors-session-option small{color:#67685f;font-size:.64rem;line-height:1.45}
 .pastors-session-option small b{display:inline-block;margin-left:.2rem;color:#66702f;font-size:.57rem;text-transform:uppercase;letter-spacing:.06em}
+.pastors-radio-row{display:flex;flex-wrap:wrap;gap:.7rem}
+.pastors-radio-row label{display:flex;align-items:center;gap:.45rem;padding:.65rem .8rem;border:1px solid #dedfd5;background:#fff;color:#505147;font-size:.75rem;cursor:pointer}
+.pastors-radio-row input,.pastors-consent input{width:17px;height:17px;flex:none;accent-color:#747a32}
+.pastors-consent{display:grid;gap:.55rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.pastors-consent label{display:flex;align-items:flex-start;gap:.65rem;color:#55564b;font-size:.74rem;line-height:1.65;cursor:pointer}
+.pastors-consent label span{min-width:0}
+.pastors-consent a{color:#555d25;text-decoration:underline;text-underline-offset:3px}
+.pastors-consent b{color:#8b742b}
+.pastors-honeypot{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.pastors-form-feedback{margin-top:1rem;padding:1rem;background:#f1f2df;color:#454a22;font-size:.8rem;line-height:1.6}
+.pastors-form-feedback[hidden]{display:none}
+.pastors-submit{width:100%;margin-top:1.5rem;cursor:pointer}
+.pastors-submit:disabled{opacity:.65;cursor:wait;transform:none}
+.pastors-form-privacy{margin:1rem 0 0;color:var(--muted);font-size:.68rem;line-height:1.6;text-align:center}
 
-@media(max-width:900px){.pastors-hospitality-art{width:min(100%,480px)}}
+.pastors-support{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.7fr);align-items:end;gap:3rem;padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem);background:#20221b;color:#f7f6ef}
+.pastors-support .eyebrow{color:var(--lime)}
+.pastors-support .display{margin-top:1rem;font-size:clamp(3.5rem,7vw,6.5rem)}
+.pastors-support>div:last-child{max-width:430px}
+.pastors-support p{color:#d2d2c6;font-size:.88rem;line-height:1.8}
+.pastors-support .button{margin-top:.8rem}
+
+@media(max-width:900px){
+  .pastors-hero{min-height:680px}
+  .pastors-hospitality{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:2rem}
+  .pastors-form-layout{grid-template-columns:minmax(190px,.55fr) minmax(0,1.45fr)}
+  .pastors-form-aside{top:90px}
+}
 @media(max-width:760px){
+  .pastors-hero{min-height:720px;padding-top:1.5rem;padding-bottom:3.5rem}
+  .pastors-hero-art{background-position:58% center}
+  .pastors-hero-shade{background:linear-gradient(90deg,#0f110df0,#0f110d9c 100%),linear-gradient(0deg,#0f110dbb,transparent 70%)}
+  .pastors-back-link{margin-bottom:3rem}
+  .pastors-hero h1{font-size:clamp(3.25rem,13vw,5.8rem);margin:1rem 0 1.8rem}
+  .pastors-hero-bottom{display:block}
   .pastors-hero-copy{font-size:.85rem}
-  .pastors-session-options{grid-template-columns:1fr}
+  .pastors-hero-actions{margin-top:1.4rem}
+  .pastors-hero-actions .button{width:100%}
+  .pastors-hero-index{right:1.25rem;bottom:1rem}
+  .pastors-hospitality{grid-template-columns:minmax(0,1fr);gap:2.5rem;padding-top:4rem;padding-bottom:4rem}
+  .pastors-hospitality-copy .display{font-size:clamp(3.3rem,13vw,5rem)}
   .pastors-hospitality-art{width:min(100%,440px)}
+  .pastors-form-heading{grid-template-columns:minmax(0,1fr);gap:1rem;margin-bottom:2rem}
+  .pastors-form-heading .display{font-size:clamp(3.2rem,12vw,5rem)}
+  .pastors-form-layout{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .pastors-form-aside{position:static}
+  .pastors-form-aside-mark{margin-bottom:1.5rem}
+  .pastors-form{padding:1.2rem}
+  .pastors-fields{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .pastors-field-choice,.pastors-field-full{grid-column:1}
+  .pastors-session-options{grid-template-columns:minmax(0,1fr)}
+  .pastors-support{grid-template-columns:minmax(0,1fr);gap:1rem;padding-top:3.5rem;padding-bottom:3.5rem}
+  .pastors-support .display{font-size:clamp(3.2rem,12vw,5rem)}
+}
+@media(max-width:380px){
+  .pastors-hero{min-height:760px}
+  .pastors-form{padding:1rem}
+  .pastors-form-section{grid-template-columns:32px minmax(0,1fr);gap:.7rem}
+  .pastors-form-step{width:30px;height:30px}
+  .pastors-radio-row{display:grid;grid-template-columns:minmax(0,1fr)}
 }
 @media(prefers-reduced-motion:reduce){.pastors-session-option{transition:none}}

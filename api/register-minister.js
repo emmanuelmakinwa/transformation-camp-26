@@ -1,6 +1,5 @@
-import { handleMinisterRegistration } from "../server/minister-registration.mjs";
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
+  const { handleMinisterRegistration } = await import("../server/minister-registration.mjs");
   return handleMinisterRegistration(req, res);
-}
+};

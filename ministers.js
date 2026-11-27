@@ -1,7 +1,11 @@
 const ministers = Array.from({ length: 4 }, (_, index) => ({
   number: String(index + 1).padStart(2, '0'),
   name: index === 0 ? 'Pst. Emmanuel Makinwa' : index === 1 ? 'Pst. Jedidiah Olawale' : index === 2 ? 'Mins. Precious Ebine' : index === 3 ? 'Mins. Emmanuel Mujoh' : 'Minister name',
-  bio: index === 1
+  bio: index === 0
+    ? `<p>Emmanuel Makinwa is the Senior Pastor of The Transformation Christian Centre (TCC) and the Convener of Transformation Camp.</p>
+       <p>He is passionate about raising transformed lives and helping people discover and fulfil their God-given purpose. His heart is to see young people grow in Christ, develop godly character, and become people of positive impact.</p>
+       <p>Through TCC, he is committed to discipleship, prayer, and teaching God's Word, helping believers grow in their faith and fulfil their divine assignment.</p>`
+    : index === 1
     ? `<p>Pastor Jedidiah Olawale is a pastor, teacher, and music minister based in Lagos, Nigeria.</p>
        <p>He is the founder of Spirit Hub, an online interdenominational fellowship where he gathers young people daily for prayer and the study of God's Word.</p>
        <p>He is also a music minister, dedicated to drawing God's people into deeper levels of intimate fellowship with God.</p>`

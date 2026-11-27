@@ -1,37 +1,13 @@
 const BASE = process.env.SUPABASE_URL;
 const ANON = process.env.SUPABASE_ANON_KEY;
 const SECRET = process.env.SUPABASE_SECRET_KEY;
+const { requireAdmin } = require("./_lib/admin-access");
 const COOKIE = "tc_admin_session";
 const SESSIONS = new Set(["session-1","session-2","session-3","session-4","session-5","session-6","session-7"]);
 
 function json(res, status, data) { res.status(status).json(data); }
-function getCookie(req) {
-  for (const part of (req.headers.cookie || "").split(";")) {
-    const item = part.trim();
-    const index = item.indexOf("=");
-    if (index > 0 && item.slice(0, index) === COOKIE) {
-      try { return decodeURIComponent(item.slice(index + 1)); } catch { return null; }
-    }
-  }
-  return null;
-}
-function allowed(email) {
-  return !!email && (process.env.ADMIN_EMAILS || "").split(",").map((value) => value.trim().toLowerCase()).filter(Boolean).includes(email.toLowerCase());
-}
-function validOrigin(req) {
-  const origin = req.headers.origin;
-  if (!origin) return req.method === "GET";
-  try { return new URL(origin).host === req.headers.host; } catch { return false; }
-}
 async function getAdmin(req) {
-  if (!BASE || !ANON || !SECRET) return { error: "Check-in service is not configured.", status: 503 };
-  const token = getCookie(req);
-  if (!token) return { error: "Authentication required.", status: 401 };
-  const response = await fetch(BASE + "/auth/v1/user", { headers: { apikey: ANON, Authorization: "Bearer " + token } });
-  if (!response.ok) return { error: "Authentication required.", status: 401 };
-  const user = await response.json();
-  if (!allowed(user.email)) return { error: "Authentication required.", status: 401 };
-  return { email: user.email };
+  return requireAdmin(req, ["super_admin", "checkin_staff"]);
 }
 const dbHeaders = () => ({ apikey: SECRET, Authorization: "Bearer " + SECRET, "Content-Type": "application/json" });
 async function db(path, options = {}) {
@@ -121,6 +97,7 @@ module.exports = async function handler(req, res) {
   let admin;
   try { admin = await getAdmin(req); } catch { return json(res, 503, { error: "Admin service is temporarily unavailable." }); }
   if (admin.error) return json(res, admin.status, { error: admin.error });
+  admin.email = admin.admin.email;
   if (req.method === "POST") return handlePost(req, res, admin);
   const query = req.query || {};
   const sessionKey = String(query.session_key || "");

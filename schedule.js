@@ -6,7 +6,7 @@ const programSchedule = [
     sessions: [
       { name: 'Arrival & registration', time: '12:00 pm – 2:00 pm' },
       { name: 'Session 1', time: '2:00 pm – 5:00 pm' },
-      { name: 'Session 2', time: '9:00 pm – 2:00 am', overnight: true },
+      { name: 'Session 2', time: '8:00 pm – 2:00 am', overnight: true },
     ],
   },
   {
@@ -16,7 +16,7 @@ const programSchedule = [
     sessions: [
       { name: 'Session 3', time: '8:00 am – 12:00 noon' },
       { name: 'Session 4', time: '2:00 pm – 5:00 pm' },
-      { name: 'Session 5', time: '9:00 pm – 2:00 am', overnight: true },
+      { name: 'Session 5', time: '8:00 pm – 2:00 am', overnight: true },
     ],
   },
   {
@@ -68,7 +68,7 @@ if (content) {
           <a class="program-flyer-image" href="assets/camp-26-program-schedule.jpg" target="_blank" rel="noreferrer" aria-label="Open the full-size Transformation Camp 26 program flyer">
             <img src="assets/camp-26-program-schedule.jpg" alt="Transformation Camp 26 program flyer listing arrival and registration, Sessions 1 through 7, their times, and the accommodation, transportation, and feeding details." loading="lazy">
           </a>
-          <p class="program-flyer-update-note"><strong>Schedule update</strong><span>Sessions 3 and 6 now run 8:00 am–12:00 noon. The printed flyer still shows the original times; follow the updated timetable.</span></p>
+          <p class="program-flyer-update-note"><strong>Schedule update</strong><span>Sessions 2 and 5 now begin at 8:00 pm, while Sessions 3 and 6 run 8:00 am–12:00 noon. The printed flyer still shows the original times; follow the updated timetable.</span></p>
           <a class="program-flyer-download" href="assets/camp-26-program-schedule.jpg" download="transformation-camp-26-program.jpg">View or download flyer <span aria-hidden="true">↗</span></a>
         </figure>
       </aside>

@@ -9,7 +9,7 @@
   const date = (value) => { const parsed = new Date(value); return Number.isNaN(parsed.getTime()) ? "—" : parsed.toLocaleString(); };
   async function api(url, options) {
     const response = await fetch(url, { credentials: "same-origin", cache: "no-store", ...options });
-    if (response.status === 401 || response.status === 403) { location.replace("/admin/login"); throw new Error("Your admin session has expired."); }
+    if (response.status === 401) { location.replace("/admin/login"); throw new Error("Your admin session has expired."); }
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || "The request could not be completed.");
     return data;

@@ -371,27 +371,8 @@ export async function handleMinisterRegistration(req, res, store = resolveStore(
   });
 }
 
-function allowedAdmin(email) {
-  return !!email && (process.env.ADMIN_EMAILS || "").split(",").map((item) => item.trim().toLowerCase()).filter(Boolean).includes(email.toLowerCase());
-}
-
-async function requireAdmin(req) {
-  const url = process.env.SUPABASE_URL;
-  const anon = process.env.SUPABASE_ANON_KEY;
-  const secret = process.env.SUPABASE_SECRET_KEY;
-  if (!url || !anon || !secret) return { ok: false, status: 503, error: "Admin API is not configured." };
-  const token = (req.headers.cookie || "").split(";").map((part) => part.trim()).reduce((found, part) => {
-    if (found) return found;
-    const index = part.indexOf("=");
-    if (index > 0 && part.slice(0, index) === "tc_admin_session") return decodeURIComponent(part.slice(index + 1));
-    return null;
-  }, null);
-  if (!token) return { ok: false, status: 401, error: "Authentication required." };
-  const response = await fetch(url + "/auth/v1/user", { headers: { apikey: anon, Authorization: "Bearer " + token } });
-  if (!response.ok) return { ok: false, status: 401, error: "Authentication required." };
-  const user = await response.json();
-  if (!allowedAdmin(user.email)) return { ok: false, status: 401, error: "Authentication required." };
-  return { ok: true };
+async function requireAdminRole(req) {
+  return requireAdmin(req, ["super_admin"]);
 }
 
 function csvCell(value) {

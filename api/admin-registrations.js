@@ -1,4 +1,5 @@
-const { requireAdmin } = require("./_lib/admin-access");
+import adminAccess from "./_lib/admin-access.js";
+const { requireAdmin } = adminAccess;
 const BASE=process.env.SUPABASE_URL,ANON=process.env.SUPABASE_ANON_KEY,SECRET=process.env.SUPABASE_SECRET_KEY;
 const COOKIE="tc_admin_session",MAX_EXPORT=5000;
 function json(res,status,data){res.status(status).json(data)}

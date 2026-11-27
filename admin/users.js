@@ -13,16 +13,22 @@
     $("#status").textContent = "Loading administrator accounts…";
     try {
       const data = await request();
-      $("#admin-rows").innerHTML = data.admins.map((admin) => '<tr><td><strong>' + escape(admin.email) + '</strong></td><td><select data-role="' + escape(admin.user_id) + '"><option value="super_admin"' + (admin.role === "super_admin" ? " selected" : "") + '>Super Admin</option><option value="checkin_staff"' + (admin.role === "checkin_staff" ? " selected" : "") + '>Check-in Staff</option></select></td><td>' + (admin.is_active ? "Active" : "Deactivated") + '</td><td>' + escape(date(admin.created_at)) + '</td><td><button class="button-secondary" type="button" data-toggle="' + escape(admin.user_id) + '" data-active="' + String(admin.is_active) + '">' + (admin.is_active ? "Deactivate" : "Reactivate") + '</button></td></tr>').join("");
+      $("#admin-rows").innerHTML = data.admins.map((admin) => '<tr><td><strong>' + escape(admin.email) + '</strong></td><td><select data-role="' + escape(admin.user_id) + '" data-current-role="' + escape(admin.role) + '"><option value="super_admin"' + (admin.role === "super_admin" ? " selected" : "") + '>Super Admin</option><option value="checkin_staff"' + (admin.role === "checkin_staff" ? " selected" : "") + '>Check-in Staff</option></select></td><td>' + (admin.is_active ? "Active" : "Deactivated") + '</td><td>' + escape(date(admin.created_at)) + '</td><td><button class="button-secondary" type="button" data-toggle="' + escape(admin.user_id) + '" data-active="' + String(admin.is_active) + '">' + (admin.is_active ? "Deactivate" : "Reactivate") + '</button></td></tr>').join("");
       $("#admin-rows").querySelectorAll("[data-role]").forEach((select) => select.addEventListener("change", async () => {
+        if (!window.confirm("Change " + select.closest("tr").querySelector("td strong").textContent + " to " + (select.value === "super_admin" ? "Super Admin" : "Check-in Staff") + "?")) {
+          select.value = select.dataset.currentRole;
+          return;
+        }
         select.disabled = true;
-        try { await request("PATCH", { user_id: select.dataset.role, role: select.value }); $("#status").textContent = "Administrator role updated."; }
+        try { await request("PATCH", { user_id: select.dataset.role, role: select.value }); select.dataset.currentRole = select.value; $("#status").textContent = "Administrator role updated."; }
         catch (error) { $("#status").textContent = error.message; await load(); }
         finally { select.disabled = false; }
       }));
       $("#admin-rows").querySelectorAll("[data-toggle]").forEach((button) => button.addEventListener("click", async () => {
+        const nextActive = button.dataset.active !== "true";
+        if (!window.confirm((nextActive ? "Reactivate " : "Deactivate ") + button.closest("tr").querySelector("td strong").textContent + "?")) return;
         button.disabled = true;
-        try { await request("PATCH", { user_id: button.dataset.toggle, is_active: button.dataset.active !== "true" }); await load(); }
+        try { await request("PATCH", { user_id: button.dataset.toggle, is_active: nextActive }); await load(); }
         catch (error) { $("#status").textContent = error.message; button.disabled = false; }
       }));
       $("#status").textContent = data.admins.length + " administrator account(s).";

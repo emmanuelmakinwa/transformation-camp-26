@@ -5,7 +5,7 @@ const SECRET=process.env.SUPABASE_SECRET_KEY;
 const COOKIE="tc_admin_session";
 function json(res,status,data){res.status(status).json(data)}
 function admins(){return (process.env.ADMIN_EMAILS||"").split(",").map(x=>x.trim().toLowerCase()).filter(Boolean)}
-function cookieValue(req){const raw=req.headers.cookie||"";for(const item of raw.split(";")){const i=item.trim().indexOf("=");if(i>0&&item.slice(0,i)===COOKIE)return decodeURIComponent(item.slice(i+1))}return null}
+function cookieValue(req){const raw=req.headers.cookie||"";for(const part of raw.split(";")){const item=part.trim();const i=item.indexOf("=");if(i>0&&item.slice(0,i)===COOKIE){try{return decodeURIComponent(item.slice(i+1))}catch{return null}}}return null}
 function setCookie(res,value,maxAge){res.setHeader("Set-Cookie",COOKIE+"="+encodeURIComponent(value)+"; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age="+maxAge)}
 function validOrigin(req){const origin=req.headers.origin;if(!origin)return true;try{return new URL(origin).host===req.headers.host}catch{return false}}
 async function userFor(token){const r=await fetch(URL_BASE+"/auth/v1/user",{headers:{apikey:ANON,Authorization:"Bearer "+token}});if(!r.ok)return null;return r.json()}

@@ -763,3 +763,18 @@ a:focus-visible,button:focus-visible{outline-color:#87921A}
     min-height: 56px;
   }
 }
+
+/* Camp opening countdown */
+.countdown-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);align-items:center;gap:clamp(2rem,7vw,6rem);background:#20251f;color:#F2F7F5}
+.countdown-copy{max-width:620px}
+.countdown-copy .eyebrow{color:#D7E28A}
+.countdown-copy h2{margin:.8rem 0 1rem;font-size:clamp(2.3rem,5vw,4.6rem);line-height:.98;letter-spacing:-.07em}
+.countdown-copy h2 em{color:#D7E28A;font-family:var(--serif);font-weight:400}
+.countdown-copy p{margin:0;color:#D3DED7;font-size:.9rem;line-height:1.7}
+.countdown-clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.5rem,2vw,1.2rem)}
+.countdown-clock>div{display:grid;justify-items:center;gap:.55rem;padding:1.1rem .6rem;border:1px solid rgba(242,247,245,.2);border-radius:16px;background:rgba(242,247,245,.06)}
+.countdown-clock strong{font-size:clamp(2rem,5vw,4rem);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.06em}
+.countdown-clock span{color:#D3DED7;font-size:.6rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.countdown-started .countdown-clock{opacity:.55}
+@media(max-width:760px){.countdown-section{grid-template-columns:1fr;gap:1.6rem;padding-top:3.5rem;padding-bottom:3.5rem}.countdown-copy h2{font-size:clamp(2.5rem,10vw,4rem)}.countdown-clock{gap:.45rem}.countdown-clock>div{padding:.95rem .35rem;border-radius:12px}.countdown-clock strong{font-size:clamp(1.7rem,8vw,2.7rem)}.countdown-clock span{font-size:.52rem;letter-spacing:.08em}}
+@media(prefers-reduced-motion:reduce){.countdown-section *{scroll-behavior:auto}}

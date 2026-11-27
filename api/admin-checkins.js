@@ -64,7 +64,7 @@ async function checkinsFor(sessionKey, generalIds, ministerIds) {
 }
 async function searchAttendees(sessionKey, term) {
   const encoded = encodeURIComponent(term);
-  const generalFilter = "or=(first_name.ilike.*" + encoded + "*,last_name.ilike.*" + encoded + "*,phone.ilike.*" + encoded + "*,registration_reference.ilike.*" + encoded + "*)";
+  const tokens = term.split(" ").filter(Boolean).slice(0, 4);\n  const nameMatch = tokens.length > 1 ? "and(first_name.ilike.*" + encodeURIComponent(tokens[0]) + "*,last_name.ilike.*" + encodeURIComponent(tokens.slice(1).join(" ")) + "*)" : "first_name.ilike.*" + encoded + "*,last_name.ilike.*" + encoded;\n  const generalFilter = "or=(" + nameMatch + ",phone.ilike.*" + encoded + "*,registration_reference.ilike.*" + encoded + "*)";
   const ministerFilter = "or=(full_name.ilike.*" + encoded + "*,phone.ilike.*" + encoded + "*,registration_reference.ilike.*" + encoded + "*)";
   const [general, ministers] = await Promise.all([
     db("registrations?select=id,registration_reference,first_name,last_name,phone&" + generalFilter + "&order=created_at.desc&limit=15"),

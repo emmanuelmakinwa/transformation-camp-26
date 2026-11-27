@@ -19,7 +19,7 @@
 
   async function api(query = params()) {
     const response = await fetch(`/api/admin-minister-registrations?${query}`, { credentials: 'same-origin', cache: 'no-store' });
-    if (response.status === 401 || response.status === 403) { location.replace('/admin/login'); throw new Error('Your admin session has expired.'); }
+    if (response.status === 401) { location.replace('/admin/login'); throw new Error('Your admin session has expired.'); }
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || 'Unable to load minister registrations.');
     return data;
@@ -77,7 +77,7 @@
             body: JSON.stringify({ id: item.id, status: $('#minister-detail-status').value })
           });
           const result = await response.json().catch(() => ({}));
-          if (response.status === 401 || response.status === 403) {
+          if (response.status === 401) {
             location.replace('/admin/login');
             return;
           }
@@ -106,7 +106,7 @@
     try {
       const query = params({ export: 'csv' });
       const response = await fetch(`/api/admin-minister-registrations?${query}`, { credentials: 'same-origin', cache: 'no-store' });
-      if (response.status === 401 || response.status === 403) { location.replace('/admin/login'); return; }
+      if (response.status === 401) { location.replace('/admin/login'); return; }
       if (!response.ok) throw new Error('Unable to export minister registrations.');
       const blob = await response.blob(); const url = URL.createObjectURL(blob); const link = document.createElement('a');
       link.href = url; link.download = 'pastors-ministers-registrations.csv'; link.click(); URL.revokeObjectURL(url); status.textContent = '';

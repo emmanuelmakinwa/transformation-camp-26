@@ -5,19 +5,34 @@ const MAX_ROWS = 100000;
 const json = (res, status, data) => res.status(status).json(data);
 
 async function rows(path) {
-  const response = await fetch(process.env.SUPABASE_URL + "/rest/v1/" + path, {
-    headers: {
-      apikey: process.env.SUPABASE_SECRET_KEY,
-      Authorization: "Bearer " + process.env.SUPABASE_SECRET_KEY,
-      Prefer: "count=exact",
-      Range: "0-" + (MAX_ROWS - 1)
-    }
-  });
-  if (!response.ok) throw new Error("Dashboard query failed.");
-  const data = await response.json();
-  const total = Number(response.headers.get("content-range")?.split("/")[1] || data.length);
-  if (total > MAX_ROWS) throw new Error("Dashboard dataset exceeds the supported reporting window.");
-  return data;
+  const chunkSize = 1000;
+  const collected = [];
+  let total = null;
+  for (let offset = 0; offset < MAX_ROWS; offset += chunkSize) {
+    const response = await fetch(process.env.SUPABASE_URL + "/rest/v1/" + path, {
+      headers: {
+        apikey: process.env.SUPABASE_SECRET_KEY,
+        Authorization: "Bearer " + process.env.SUPABASE_SECRET_KEY,
+        Prefer: "count=exact",
+        Range: offset + "-" + (offset + chunkSize - 1)
+      }
+    });
+    if (!response.ok) throw new Error("Dashboard query failed.");
+    const data = await response.json();
+    if (total === null) total = Number(response.headers.get("content-range")?.split("/")[1] || data.length);
+    if (total > MAX_ROWS) throw new Error("Dashboard dataset exceeds the supported reporting window.");
+    collected.push(...data);
+    if (collected.length >= total || data.length < chunkSize) break;
+  }
+  return collected;
+}
+
+function lagosDateKey(value) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Lagos", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(new Date(value));
+  const part = (type) => parts.find((item) => item.type === type)?.value || "";
+  return part("year") + "-" + part("month") + "-" + part("day");
 }
 
 module.exports = async function handler(req, res) {
@@ -45,22 +60,21 @@ module.exports = async function handler(req, res) {
       if (item.minister_registration_id) checked.add("minister:" + item.minister_registration_id);
     }
 
-    const today = new Date();
-    const start = new Date(today);
-    start.setDate(start.getDate() - 13);
-    start.setHours(0, 0, 0, 0);
+    const start = new Date(lagosDateKey(Date.now()) + "T00:00:00Z");
+    start.setUTCDate(start.getUTCDate() - 13);
     const trendMap = new Map();
     for (let i = 0; i < 14; i += 1) {
       const day = new Date(start);
-      day.setDate(start.getDate() + i);
-      trendMap.set(day.toISOString().slice(0, 10), { date: day.toISOString().slice(0, 10), general: 0, ministers: 0 });
+      day.setUTCDate(start.getUTCDate() + i);
+      const key = day.toISOString().slice(0, 10);
+      trendMap.set(key, { date: key, general: 0, ministers: 0 });
     }
     for (const item of general) {
-      const day = item.created_at ? localDateKey(item.created_at) : "";
+      const day = item.created_at ? lagosDateKey(item.created_at) : "";
       if (trendMap.has(day)) trendMap.get(day).general += 1;
     }
     for (const item of ministers) {
-      const day = String(item.created_at || "").slice(0, 10);
+      const day = item.created_at ? lagosDateKey(item.created_at) : "";
       if (trendMap.has(day)) trendMap.get(day).ministers += 1;
     }
 
@@ -95,7 +109,7 @@ module.exports = async function handler(req, res) {
       }
     });
   } catch (error) {
-    console.error("Operations dashboard query failed.");
-    return json(res, 500, { error: "Unable to load event operations data. " + (error.message || "") });
+    console.error("Operations dashboard query failed:", error.message || "unknown");
+    return json(res, 500, { error: "Unable to load event operations data." });
   }
 };

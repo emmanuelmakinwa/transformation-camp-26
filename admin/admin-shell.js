@@ -1,5 +1,5 @@
 (() => {
-  const path = location.pathname.replace(/\\/$/, "") || "/admin";
+  const path = location.pathname.replace(/\/$/, "") || "/admin";
   const isCheckin = path === "/admin/check-in";
   fetch("/api/admin-auth", { credentials: "same-origin", cache: "no-store" })
     .then(async (response) => {

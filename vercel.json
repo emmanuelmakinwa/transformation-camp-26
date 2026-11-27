@@ -62,6 +62,14 @@
     {
       "source": "/admin/check-in",
       "destination": "/admin/check-in.html"
+    },
+    {
+      "source": "/admin/operations",
+      "destination": "/admin/operations.html"
+    },
+    {
+      "source": "/admin/users",
+      "destination": "/admin/users.html"
     }
   ]
-}
+}\n

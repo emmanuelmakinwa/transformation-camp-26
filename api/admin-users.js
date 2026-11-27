@@ -100,7 +100,10 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify(patch)
     });
     return json(res, 200, { admin: updated[0] });
-  } catch {
+  } catch (error) {
+    if (error.code === "23514") {
+      return json(res, 409, { error: "The last active Super Admin cannot be demoted or deactivated." });
+    }
     return json(res, 500, { error: "Unable to update this administrator account." });
   }
 };

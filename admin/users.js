@@ -5,7 +5,7 @@
   async function request(method = "GET", body) {
     const response = await fetch("/api/admin-users", { method, credentials: "same-origin", cache: "no-store", headers: body ? { "Content-Type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
     const data = await response.json().catch(() => ({}));
-    if (response.status === 401 || response.status === 403) { location.replace("/admin/login"); throw new Error("Access denied."); }
+    if (response.status === 401) { location.replace("/admin/login"); throw new Error("Access denied."); }
     if (!response.ok) throw new Error(data.error || "Request failed.");
     return data;
   }

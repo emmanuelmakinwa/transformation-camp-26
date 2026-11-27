@@ -1,4 +1,4 @@
-const { requireAdmin, rest } = require("./_lib/admin-access");
+const { requireAdmin } = require("./_lib/admin-access");
 
 const SESSIONS = ["session-1","session-2","session-3","session-4","session-5","session-6","session-7"];
 const MAX_ROWS = 100000;
@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
       trendMap.set(day.toISOString().slice(0, 10), { date: day.toISOString().slice(0, 10), general: 0, ministers: 0 });
     }
     for (const item of general) {
-      const day = String(item.created_at || "").slice(0, 10);
+      const day = item.created_at ? localDateKey(item.created_at) : "";
       if (trendMap.has(day)) trendMap.get(day).general += 1;
     }
     for (const item of ministers) {

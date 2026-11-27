@@ -5,10 +5,10 @@ import path from "node:path";
 
 export const SESSIONS = [
   { key: "session-1", label: "Session 1 — 21 December 2026, 2:00 pm – 5:00 pm" },
-  { key: "session-2", label: "Session 2 — 21 December 2026, 9:00 pm – 2:00 am" },
+  { key: "session-2", label: "Session 2 — 21 December 2026, 8:00 pm – 2:00 am" },
   { key: "session-3", label: "Session 3 — 22 December 2026, 8:00 am – 12:00 noon" },
   { key: "session-4", label: "Session 4 — 22 December 2026, 2:00 pm – 5:00 pm" },
-  { key: "session-5", label: "Session 5 — 22 December 2026, 9:00 pm – 2:00 am" },
+  { key: "session-5", label: "Session 5 — 22 December 2026, 8:00 pm – 2:00 am" },
   { key: "session-6", label: "Session 6 — 23 December 2026, 8:00 am – 12:00 noon" },
   { key: "session-7", label: "Session 7 — 23 December 2026, 2:00 pm – 5:00 pm" }
 ];

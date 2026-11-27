@@ -35,3 +35,8 @@
 [data-super-admin-only][hidden]{display:none!important}
 @media(max-width:950px){.operations-grid{grid-template-columns:minmax(0,1fr)}.operations-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.operations-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.operations-metrics .metric{padding:16px}.operations-metrics .metric strong{font-size:26px}.accommodation-grid{grid-template-columns:1fr}.invite-form{grid-template-columns:1fr}.trend-chart{gap:3px}.trend-day small{font-size:8px}.bar-row{grid-template-columns:minmax(100px,1fr) minmax(45px,1fr) 32px;gap:7px}.panel-heading{display:block}}
+
+.bar-svg{display:block;width:100%;height:10px}
+.trend-chart{display:block;min-height:0;padding:0;border:0}
+.trend-svg{display:block;width:100%;height:auto;max-height:220px;overflow:visible}
+.trend-svg text{fill:#68736b;font-size:9px}

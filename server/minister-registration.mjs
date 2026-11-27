@@ -372,7 +372,9 @@ export async function handleMinisterRegistration(req, res, store = resolveStore(
 }
 
 async function requireAdminRole(req) {
-  return requireAdmin(req, ["super_admin"]);
+  const result = await requireAdmin(req, ["super_admin"]);
+  if (result.error) return { ok: false, status: result.status, error: result.error };
+  return { ok: true, admin: result.admin };
 }
 
 function csvCell(value) {

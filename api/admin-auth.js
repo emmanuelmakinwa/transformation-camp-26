@@ -34,9 +34,9 @@ async function authorized(token) {
 }
 async function emailIsAdmin(email) {
   if (!email || !URL_BASE || !ANON || !SECRET) return false;
-  if (legacyAdmins().includes(email)) return true;
-  const rows = await rest("admin_users?select=user_id&email=eq." + encodeURIComponent(email) + "&is_active=eq.true&limit=1");
-  return rows.length > 0;
+  const rows = await rest("admin_users?select=user_id,is_active&email=eq." + encodeURIComponent(email) + "&limit=1");
+  if (rows.length) return rows[0].is_active === true;
+  return legacyAdmins().includes(email);
 }
 
 export default async function handler(req, res) {

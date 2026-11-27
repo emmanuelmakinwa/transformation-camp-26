@@ -50,6 +50,14 @@
     {
       "source": "/reset-password",
       "destination": "/reset-password.html"
+    },
+    {
+      "source": "/pastors-ministers",
+      "destination": "/pastors-ministers.html"
+    },
+    {
+      "source": "/admin/ministers",
+      "destination": "/admin/ministers.html"
     }
   ]
 }

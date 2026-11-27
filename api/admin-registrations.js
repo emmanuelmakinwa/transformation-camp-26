@@ -1,7 +1,7 @@
 const BASE=process.env.SUPABASE_URL,ANON=process.env.SUPABASE_ANON_KEY,SECRET=process.env.SUPABASE_SECRET_KEY;
 const COOKIE="tc_admin_session",MAX_EXPORT=5000;
 function json(res,status,data){res.status(status).json(data)}
-function getCookie(req){for(const p of (req.headers.cookie||"").split(";")){const i=p.trim().indexOf("=");if(i>0&&p.slice(0,i)==COOKIE)return decodeURIComponent(p.slice(i+1))}return null}
+function getCookie(req){for(const part of (req.headers.cookie||"").split(";")){const item=part.trim();const i=item.indexOf("=");if(i>0&&item.slice(0,i)===COOKIE){try{return decodeURIComponent(item.slice(i+1))}catch{return null}}}return null}
 function allowed(email){return !!email&&(process.env.ADMIN_EMAILS||"").split(",").map(s=>s.trim().toLowerCase()).includes(email.toLowerCase())}
 async function admin(req){const token=getCookie(req);if(!token)return false;const r=await fetch(BASE+"/auth/v1/user",{headers:{apikey:ANON,Authorization:"Bearer "+token}});if(!r.ok)return false;const u=await r.json();return allowed(u.email)}
 function csv(v){let s=String(v??"");if(/^[\s]*[=+@\-]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'}

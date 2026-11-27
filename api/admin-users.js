@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
     try {
       const existing = await rest("admin_users?select=user_id&email=eq." + encodeURIComponent(email) + "&limit=1");
       if (existing.length) return json(res, 409, { error: "This email already has an administrator account." });
-      const redirect = process.env.ADMIN_INVITE_REDIRECT_URL || "https://www.transformationcamp.com.ng/admin/login";
+      const redirect = process.env.ADMIN_INVITE_REDIRECT_URL || "https://www.transformationcamp.com.ng/admin/accept-invite";
       const invite = await fetch(process.env.SUPABASE_URL + "/auth/v1/invite?redirect_to=" + encodeURIComponent(redirect), {
         method: "POST",
         headers: { apikey: process.env.SUPABASE_SECRET_KEY, Authorization: "Bearer " + process.env.SUPABASE_SECRET_KEY, "Content-Type": "application/json" },

@@ -1,3 +1,5 @@
+import adminAccess from "../api/_lib/admin-access.js";
+const { requireAdmin } = adminAccess;
 import { createHmac, randomBytes, randomUUID } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { isIP } from "node:net";
@@ -418,7 +420,7 @@ export async function handleAdminMinisterRegistrations(req, res) {
 
   let auth;
   try {
-    auth = await requireAdmin(req);
+    auth = await requireAdminRole(req);
   } catch {
     return json(res, 503, { error: "Admin service is temporarily unavailable." });
   }

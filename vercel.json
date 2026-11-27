@@ -58,6 +58,10 @@
     {
       "source": "/admin/ministers",
       "destination": "/admin/ministers.html"
+    },
+    {
+      "source": "/admin/check-in",
+      "destination": "/admin/check-in.html"
     }
   ]
 }

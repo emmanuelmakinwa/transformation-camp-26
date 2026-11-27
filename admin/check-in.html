@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Event Check-in | Transformation Camp Admin</title><link rel="stylesheet" href="/admin/admin.css"></head>
+<body>
+<div class="app">
+  <aside class="sidebar"><a class="brand-link" href="/admin/"><img src="/images/transformation-camp-logo.png" alt="Transformation Camp"></a><p class="eyebrow">ADMINISTRATION</p><nav><a href="/admin/">Attendee registrations</a><a href="/admin/ministers">Pastors &amp; ministers</a><a class="nav-active" href="/admin/check-in" aria-current="page">Event check-in</a><a href="/" target="_blank" rel="noreferrer">View public website ↗</a></nav><button id="logout" class="button-secondary">Sign out</button></aside>
+  <main class="content">
+    <header class="page-header"><div><p class="eyebrow">TRANSFORMATION CAMP 26</p><h1>Event check-in</h1><p class="muted">Find a completed registration and record attendance for the selected session.</p></div><button id="refresh" class="button-secondary" type="button">Refresh</button></header>
+    <section class="panel">
+      <div class="toolbar checkin-toolbar">
+        <label for="session">Event session<select id="session" required>
+          <option value="session-1">Session 1 · 21 Dec · 2:00 pm–5:00 pm</option>
+          <option value="session-2">Session 2 · 21 Dec · 9:00 pm–2:00 am</option>
+          <option value="session-3">Session 3 · 22 Dec · 8:00 am–12:00 noon</option>
+          <option value="session-4">Session 4 · 22 Dec · 2:00 pm–5:00 pm</option>
+          <option value="session-5">Session 5 · 22 Dec · 9:00 pm–2:00 am</option>
+          <option value="session-6">Session 6 · 23 Dec · 8:00 am–12:00 noon</option>
+          <option value="session-7">Session 7 · 23 Dec · 2:00 pm–5:00 pm</option>
+        </select></label>
+        <label for="search">Search completed registrations<input id="search" type="search" placeholder="Enter attendee name or phone number" autocomplete="off" minlength="2"></label>
+      </div>
+      <p id="status" class="message" role="status" aria-live="polite">Select a session, then search by name or phone.</p>
+      <div class="table-wrap"><table><thead><tr><th>Attendee</th><th>Registration type</th><th>Phone</th><th>Reference</th><th>Session status</th><th>Action</th></tr></thead><tbody id="rows"></tbody></table></div>
+    </section>
+  </main>
+</div>
+<script src="/admin/check-in.js" defer></script>
+</body></html>

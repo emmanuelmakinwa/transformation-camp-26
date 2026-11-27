@@ -70,6 +70,10 @@
     {
       "source": "/admin/users",
       "destination": "/admin/users.html"
+    },
+    {
+      "source": "/admin/accept-invite",
+      "destination": "/admin/accept-invite.html"
     }
   ]
 }

@@ -1,5 +1,4 @@
-import adminAccess from "./_lib/admin-access.js";
-const { requireAdmin, rest } = adminAccess;
+const { requireAdmin, rest } = require("./_lib/admin-access.js");
 const URL_BASE = process.env.SUPABASE_URL;
 const ANON = process.env.SUPABASE_ANON_KEY;
 const SECRET = process.env.SUPABASE_SECRET_KEY;
@@ -39,7 +38,7 @@ async function emailIsAdmin(email) {
   return legacyAdmins().includes(email);
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   if (!validOrigin(req)) return json(res, 403, { error: "Forbidden." });
   if (!URL_BASE || !ANON || !SECRET) return json(res, 503, { error: "Admin authentication is not configured." });

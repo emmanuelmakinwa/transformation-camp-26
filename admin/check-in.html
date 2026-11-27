@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Event Check-in | Transformation Camp Admin</title><link rel="stylesheet" href="/admin/admin.css"></head>
 <body>
 <div class="app">
-  <aside class="sidebar"><a class="brand-link" href="/admin/"><img src="/images/transformation-camp-logo.png" alt="Transformation Camp"></a><p class="eyebrow">ADMINISTRATION</p><nav><a href="/admin/">Attendee registrations</a><a href="/admin/ministers">Pastors &amp; ministers</a><a class="nav-active" href="/admin/check-in" aria-current="page">Event check-in</a><a href="/" target="_blank" rel="noreferrer">View public website ↗</a></nav><button id="logout" class="button-secondary">Sign out</button></aside>
+  <aside class="sidebar"><a class="brand-link" href="/admin/"><img src="/images/transformation-camp-logo.png" alt="Transformation Camp"></a><p class="eyebrow">ADMINISTRATION</p><nav><a href="/admin/operations" data-super-admin-only>Operations dashboard</a><a href="/admin/">Attendee registrations</a><a href="/admin/ministers" data-super-admin-only>Pastors &amp; ministers</a><a class="nav-active" href="/admin/check-in" aria-current="page">Event check-in</a><a href="/admin/users" data-super-admin-only>Administrator accounts</a><a href="/" target="_blank" rel="noreferrer">View public website ↗</a></nav><button id="logout" class="button-secondary">Sign out</button></aside>
   <main class="content">
     <header class="page-header"><div><p class="eyebrow">TRANSFORMATION CAMP 26</p><h1>Event check-in</h1><p class="muted">Find a completed registration and record attendance for the selected session.</p></div><button id="refresh" class="button-secondary" type="button">Refresh</button></header>
     <section class="panel">
@@ -25,4 +25,4 @@
   </main>
 </div>
 <script src="/admin/check-in.js" defer></script>
-</body></html>
+<script src="/admin/admin-shell.js" defer></script></body></html>

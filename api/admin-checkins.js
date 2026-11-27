@@ -6,7 +6,7 @@ const COOKIE = "tc_admin_session";
 const SESSIONS = new Set(["session-1","session-2","session-3","session-4","session-5","session-6","session-7"]);
 
 function json(res, status, data) { res.status(status).json(data); }
-async function getAdmin(req) {
+function validOrigin(req) {\n  const origin = req.headers.origin;\n  if (!origin) return req.method === "GET";\n  try { return new URL(origin).host === req.headers.host; } catch { return false; }\n}\nasync function getAdmin(req) {
   return requireAdmin(req, ["super_admin", "checkin_staff"]);
 }
 const dbHeaders = () => ({ apikey: SECRET, Authorization: "Bearer " + SECRET, "Content-Type": "application/json" });

@@ -5,7 +5,7 @@
   const params = new URLSearchParams(location.hash.slice(1));
   const token = params.get("access_token");
   const type = params.get("type");
-  if (token && type === "invite") {
+  if (token && (type === "invite" || type === "recovery")) {
     history.replaceState(null, "", location.pathname + location.search);
   } else {
     message.textContent = "This invitation link is invalid or has expired. Ask a Super Admin to send a new invitation.";
